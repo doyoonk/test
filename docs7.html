@@ -1,0 +1,3236 @@
+'<html class="k-webkit k-webkit111"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta property="og:title" content="Bizbox Alpha 전자결재">
+<!-- <meta property="og:description" content="" /> -->
+<meta property="og:image" content="http://maconn.duzon.com/upload/Images/logo/og_default_logo.png">
+<title>[채용]신규인력 채용의 건(SW 1팀 이상현 외 1명)</title>
+
+<script>
+  var langCode = "KR";
+ </script>
+
+<!--  kendo ui 관련 js, css  -->
+<link rel="stylesheet" type="text/css" href="/eap/css/kendoui/kendo.common.min.css">
+<link rel="stylesheet" type="text/css" href="/eap/css/kendoui/kendo.default.min.css">
+<link rel="stylesheet" type="text/css" href="/eap/css/kendoui/kendo.dataviz.min.css">
+<link rel="stylesheet" type="text/css" href="/eap/css/kendoui/kendo.dataviz.default.min.css">
+<link rel="stylesheet" type="text/css" href="/eap/css/kendoui/kendo.silver.min.css">
+<link rel="stylesheet" type="text/css" href="/eap/css/common.css?version=2023041011">
+<link rel="stylesheet" type="text/css" href="/eap/css/reKendo.css?version=2023041011">
+
+<script type="text/javascript" src="/eap/js/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript" src="/eap/js/neos/common.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/neos/common.kendo.js?version=2023041011"></script>
+
+
+<script type="text/javascript" src="/eap/js/neos/NeosUtil.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/neos/NeosCodeUtil.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/kendoui/kendo.all.min.js"></script>
+
+    
+    	<script type="text/javascript" src="/eap/js/kendoui/cultures/kendo.culture.ko-KR.min.js"></script>
+    
+	
+<script type="text/javascript" src="/eap/js/Scripts/common.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/Controls.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/html/egovframework/com/cmm/utl/htmlarea3.0/dialog.js"></script>
+	
+<script type="text/javascript">
+    /* tiles : popup_tiles.jsp */
+    _g_contextPath_ = "/eap";
+</script>
+
+<script type="text/javascript">
+
+	$("#viewLoading").hide();
+	$(document).bind("ajaxStart", function() {
+		if($("#viewLoading").css("display") != "block"){
+	        $("#viewLoading").css("width", "100%");
+	        $("#viewLoading").css("height", "100%");
+	        $("#viewLoading").fadeIn(100);    		
+		}    	
+	}).bind("ajaxStop", function() {
+	    $("#viewLoading").fadeOut(200);
+	});
+	
+</script>
+</head>
+<body>
+	<div id="viewLoading" style="position: absolute; top: 0px; left: 0px; z-index: 9999; text-align: center; background: rgb(255, 255, 255); opacity: 0.5; width: 100%; height: 100%; display: none;">
+		<iframe id="ifLoading" src="about:blank" frameborder="0" width="100%" height="100%" scrolling="no"></iframe>
+		<div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 9999; text-align: center;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" style="height: 100%;">
+				<tbody><tr>
+					<td style="height: 100%;">
+						<img src="/eap/css/kendoui/Default/loading-image.gif">
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+<!--수정 배포된 Js파일 캐시 방지  -->
+
+
+<link rel="stylesheet" type="text/css" href="/eap/css/ea_layout.css?version=2023041011">
+<link rel="stylesheet" type="text/css" href="/eap/css/common.css?version=2023041011">
+<script type="text/javascript" src="/eap/js/ea/CommonEA.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/ea/EaAppDocView.js?version=2023041011"></script>
+
+<script type="text/javascript" src="/eap/js/ea/EaAppDocViewOpt.js?version=2023041011"></script>
+<script type="text/javascript" src="/eap/js/ea/EaAppDocIframeMoney.js?version=2023041011  "></script>
+
+<script type="text/javascript" src="/eap/js/pudd/js/pudd-1.1.194.min.js?version=2023041011"></script>
+<link rel="stylesheet" type="text/css" href="/eap/css/pudd/pudd.css?version=2023041011">
+<link rel="stylesheet" type="text/css" href="/eap/css/pudd/re_pudd.css?version=2023041011">
+
+<style type="text/css" media="print">
+@page {
+	size: auto; /* auto is the initial value */
+	margin: -1mm 5mm -10mm 5mm !important;
+	/* this affects the margin in the printer settings */
+}
+</style>
+
+<script type="text/javascript">
+	var formID = "32" || "0";
+	var docID = "42061" || "0";
+	
+	// pDocID =>  참조문서 링크시 붙여주는 파라메타    원문서에 doc_id를 넣어주며 문서 열람시 해당 파라메타가 있으면 해당파라메타의 doc_id 권한을 체크한다. 
+	var pDocID = "0" || "0";  
+	// type =>  해당 파라메타 넣어서 호출해주는부분은 현재 모두 주석처리되어있어서 사용하지않는것으로 보임 type이 0이어야지 버튼 보여주는 로직을 타게 되어있어서 파라메타안넘기면 버튼보여주는 로직탐
+	var type = "" || "0";
+	// docAuth => - 권한체크 관련      -1 : 일반(권한체크 함) , 0 : 권한체크 안함 , 1 : 권한체크 안함, 내용수정가능, 결재특이사항 수정/삭제 가능 (관리자페이지에서 접근시)
+	var docAuth = "-1" || "-1";
+	// fApproval => - 예전에 서비스했던 대면결재라는 기능에 필요한 파라메타로 현재는 사용안하고 있어서 구현안해도 되는 부분입니다. 
+	var fApproval = "" || "0";
+	// refPop => - 참조문서 자동 팝업 옵션에 사용되는 파라메타로 참조문서 자동팝업 옵션을 사용하면서 refPop가 0일 경우 뷰화면 띄우면서 참조문서를 팝업시켜주는데 자동으로 호출된 참조문서팝업은 refPop를 1로 넘겨 참조문서의 참조문서는 팝업으로 뜨지 않도록 해줌
+	var refPop = "" || "0";
+
+	var coID = "1" || "";
+	var userID = "552" || "";
+	var deptID = "387" || "";
+	var coIDCD = "0";
+	
+	var SmtpIP  = "" || "";
+
+	var OperDt = "2023-04-10";
+	
+	var attachFileList = [];
+	// 참조문서 조회시 최상위 doc id
+	var spDocId = "" || "42061;0";
+	var spMigYn = "";
+	// 협조전 원문서 번호
+	var cooperateDocId = 0;
+	// 결재문서 activity 정보
+	var formActInfo = null;
+	var modifyFileYn = "N";
+	var newYn = "";
+	//첫번째 결재자, 기안자
+	var firstLine = null;
+	var drafter = null;
+	// MIG 항목별 첨부파일 참조용 
+	var groupSeq = "aproele" || "";
+	
+	var existingFileList = ""; // 기존 첨부파일 리스트
+	var modifyFileList = "";	// 첨부파일 수정내용
+	
+	// 20210202 버튼 클릭 시 권한체크를 공통으로 진행하기 위해 함수선언 
+	function fnBtnModifyAuthCheckProc(type){
+		var nProxyUser = "";
+		var tblParam = {};
+		tblParam.doc_id = docID;
+		tblParam.form_id = formID;
+		tblParam.doc_auth = docAuth;
+		bindThis = this;
+		$.ajax({
+			type: "POST",
+		    dataType: "json",
+		    data: tblParam,
+		    url: getContextPath()+"/Ea/EADocPop/EAUpdatedAppDoc.do",
+		    success : function(res){
+		    	res = res.resultValue;
+		    	if(res.proxy){
+		    		nProxyUser = res.proxy.proxy_app_user_id;
+		    	}
+		    	
+		    	switch(type){
+		    		// 내용수정일 경우 
+		    		case "appdoc":
+		    			if(fnBtnAppDocModifyInit(res.line, res.info, nProxyUser, res.form_info, true)){
+			    			fnAppDocModify();
+							bindThis.blur(); 
+			    		}else{
+				        	fnPuddDiaLog("warning", "상위 결재자의 상태가 변경되어 수정할 수 없습니다.");
+			    		}
+		    			break;
+		    		// 첨부파일 수정일 경우 
+		    		case "attach_file":
+		    			if(fnBtnAppDocAttachFileModify(res.line, res.info, nProxyUser, true)){
+				    		fnAttachFileModify(); 
+				    		bindThis.blur();
+				    	}else{
+				        	fnPuddDiaLog("warning", "상위 결재자의 상태가 변경되어 수정할 수 없습니다.");
+				    	}
+		    			break;
+		    		// 결재라인 수정일 경우 		
+		    		case "appline":
+		    			if(fnBtnAppDocLineModifyInit(res.line, res.info, nProxyUser, true)){
+				    		fnAppDocLineModify();
+							bindThis.blur();
+				    	}else{
+				        	fnPuddDiaLog("warning", "상위 결재자의 상태가 변경되어 수정할 수 없습니다.");
+				    	}
+		    			break;
+		
+		    	}
+		    	
+		    },
+		    error: function(error){
+	   			fnPuddDiaLog("error", "오류가 발생했습니다. 관리자에게 문의하세요");
+		    }
+		})
+	}
+	
+	//로딩
+	$(document).ready(function() {
+		
+		// $("#modifyReason").hide();
+		
+		var resultCode = "";
+		if (resultCode == "-999") {
+			fnPuddDiaLog("warning", "세션이 존재하지 않습니다. 다시 로그인하세요.","fnFowardLogin");
+			//self.close();
+			//return;
+		}
+		
+		window.focus();
+		
+		//옵션버튼 상세 레이어
+		$(".psh_left ul li a").click(function () { 
+			$(".pop_btn_sel").hide();
+			$(this).siblings().show();   				
+        });
+		
+		// 상단 아이콘 버튼 레이어 팝업
+		$(".pop_btn_sel").mouseout(function () {
+            $(this).hide();      
+        }).mouseover(function () {
+            $(this).show();      
+        });
+		
+		//기본버튼
+		$(".controll_btn button").kendoButton();
+		
+		//결재문서 셀렉트
+// 		$("#eaSignSel").kendoComboBox();
+		
+		//문서정보
+		$("#con_newpop").show();
+		fnAppDocV();
+		
+		// 버튼 이벤트
+		// 대면결재 요청
+		$("#btnFaceApproval").click(function() {
+			fnFaceApprovalPop();
+			this.blur();
+		});
+		// 결재
+		$("#btnApproval").click(function() {
+			fnApprovalPop("approval");
+			this.blur();
+		});
+		// 결재취소
+		$("#btnApprovalCancel").click(function() {
+			fnAppDocApprovalCancel();
+			this.blur();
+		});
+		// 문서채번수정
+		$("#btnAppDocNumberingModify").click(function() {
+			fnAppDocNumberingModify();
+			this.blur();
+		});
+		// 연동정보수정
+		$("#btnInterlock").click(function() {
+			fnInterlock();
+			this.blur();
+		});
+		// 결재내용수정
+		$("#btnAppDocModify").click(function() {
+			fnBtnModifyAuthCheckProc("appdoc");
+			//fnAppDocModify();
+			//this.blur(); 
+		});
+		// 결재라인수정
+		$("#btnAppDocLineModify").click(function() {
+			fnBtnModifyAuthCheckProc("appline");
+		/* 	fnAppDocLineModify();
+			this.blur(); */
+		});
+		// 상신취소
+		$("#btnAppDocCancel").click(function() {
+			fnAppDocCancel();
+			this.blur();
+		});
+		// 문서삭제
+		$("#btnAppDocDelete").click(function() {
+			fnAppDocDelete();
+			this.blur();
+		});
+		// 접수결재
+		$("#btnAppDocRcvConfirm").click(function() {
+			fnApprovalPop("rcvConfirm");
+			this.blur();
+			//fnAppDocRcvConfirm();
+		});
+		// 접수반려
+		$("#btnAppDocRcvReturn").click(function() {
+			fnApprovalPop("rcvReturn");
+			this.blur();
+			//fnAppDocRcvReturn();
+		});		
+		// 결재이력
+		$("#btnApprovalLog").click(function() {
+			fnAppDocApprovalLog();
+			this.blur();
+		});		
+		// 반려이력
+		$("#btnReturnLog").click(function() {
+			fnAppDocReturnLog();
+			this.blur();
+		});		
+		// 회수
+		$("#btnAppDocCollect").click(function() {
+			fnAppDocCollect();
+			this.blur();
+		});
+		// 시행
+		$("#btnAppDocOperation").click(function() {
+			fnAppDocOperation();
+			this.blur();
+		});
+		
+		// 회람확인
+        $("#btnAppDocCirculating").click(function () { fnAppDocCirculating(); this.blur();});
+        
+		// 첨부파일 수정
+		$("#btnAttachFileModify").click(function () { 
+			fnBtnModifyAuthCheckProc("attach_file");
+		});  
+		
+		// 첨부파일 수정 저장
+		$("#btnFileMod").click(function () {
+			var tblParam = {};
+			tblParam.doc_id = docID;
+			tblParam.form_id = formID;
+			tblParam.doc_auth = docAuth;
+			bindThis = this;
+			
+			$.ajax({
+				type: "POST",
+			    dataType: "json",
+			    data: tblParam,
+			    url: getContextPath()+"/Ea/EADocPop/EAUpdatedAppDoc.do",
+			    success : function(res){
+			    	res = res.resultValue;
+					var nProxyUser = "";
+					
+			    	if(res.proxy){
+			    		nProxyUser = res.proxy.proxy_app_user_id;
+			    	}
+			    	if(fnBtnAppDocAttachFileModify(res.line, res.info, nProxyUser, true)){
+						fnFileModReasonPop(); 
+			    		bindThis.blur();
+			    	}else{
+			        	fnPuddDiaLog("warning", "상위 결재자의 상태가 변경되어 수정할 수 없습니다.");
+			    	}
+			    },
+			    error: function(error){
+		   			fnPuddDiaLog("error", "오류가 발생했습니다. 관리자에게 문의하세요");
+			    }
+			})				
+		});  
+		
+		// 첨부파일 수정 취소
+		$("#btnFileCancel").click(function () { fnFileModCancle(); this.blur();});
+		
+		// 수신결재라인 지정
+		$("#btnAppDocSecondLine").click(function () { fnAppDocSecondLine(); this.blur();});
+		
+		// 발신부서 정보 팝업
+	    $("#btnCooperateDocInfo").click(function () { fnCooperateDocInfo(); this.blur(); return false; });
+		
+		//전자결재 양식 내 &nbsp; 태그를 사용 시 크롬과 IE간격이 일정하지 않아 오류 해결 위한 코드 삽입. 이정미 선임님 요청.
+		/*
+		$(".area_sign td").each(function() {
+            var $this = $(this);
+            $this.html($this.html().replace(/&nbsp;&nbsp;&nbsp;/g, \'&emsp;\'));
+        });
+		*/
+		
+		// 사파리에서 기안자 td height 가 커보이는 문제로 결재라인 row수로 height 다시 계산하여 tr 영역에 height를 다시 설정. 
+		var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf("safari") != -1 && agent.indexOf("chrome") != -1) {
+	     	var df05_height = $(".df05").height(); //결재라인 높이
+	     	var df05_rowspan = $(".df05").attr("rowspan"); //rowspan 값
+	     	var tr_height = df05_height / df05_rowspan; //tr태그에 들어갈 높이 값
+	     	var df05_arr = $(".df05").parent().parent().children();
+	     	if (df05_arr.length > 0) {
+	     		var idx = 0;
+	     		for(var i = 0; i < df05_arr.length; i++) {
+	     			var pEl_nodename = df05_arr[i].nodeName;
+	     			if (pEl_nodename == \'TR\' && idx < df05_rowspan) {
+	     				df05_arr[i].style.height = tr_height +"px";
+	     				idx++;
+	     			}
+	     		}
+	     	}
+        }
+	});
+	
+	window.onload = function() {
+		
+		//$("#con_newpop").show();
+		
+		//컨텐츠가 팝업보다 작을경우 div 사이즈 계산
+		fnResizePop();
+	};
+	
+	// 결재의견 저장버튼
+	$(document).on("click", "#btnCommentInsert", function () {
+		fnGetEADocCommentSave();
+	});
+	
+	// 결재의견 수정버튼
+	$(document).on("click", "#btnCommentUpdate", function () {
+		fnGetEADocCommentModify();
+	});
+	
+	// 결재의견 취소버튼
+	$(document).on("click", "#btnCommentCancel", function () {
+		$("#inputComment").val("");
+		$("#btnCommentInsert").show();
+		$("#divCommentUpdate").hide();
+	});
+	
+	function fnFowardLogin(){
+		var url = location.href;
+		url = encodeURIComponent(url.substring(url.indexOf(\'/eap/\'))); //로그인후 다시 넘어올 url 생성
+    	location.href=\'/gw/bizboxLink.do?url=\'+url;	// 로그인할 페이지
+    	return;
+    }
+	
+	function fnResizePop() {
+        var popSign = $("#con_newpop").height()
+        var innerHeight;
+        
+      	//innerWidth / innerHeight / outerWidth / outerHeight 지원 브라우저 
+        if (window.innerHeight ) {
+	        innerHeight = window.innerHeight;
+        }else{
+			innerHeight = $(window).height();
+        }
+      	
+      	//컨텐츠가 팝업보다 작을경우 div 사이즈 계산
+        if(innerHeight > popSign) {
+        		$("#con_newpop").css("height", "100%");
+        }
+		
+	}
+	
+	function fnEaSignSelShow(name , id){
+		
+		var combobox = $("#eaSignSel").data("kendoComboBox");
+		combobox.dataSource.pushCreate({ name: name, id : id});
+ 	    combobox.refresh();
+	}
+	function onChangeEa(e){
+		var btnId = this.value();
+		//결재문서 셀렉트 event 호출
+// 		 $("#eaSignSel").change(function () {
+// 			var btnId = $("#eaSignSel option:selected").val();	
+
+			 switch (btnId) {
+			   //문서수정이력
+			   case \'btnModLog\' : fnAppDocModLog();
+			   break;
+			   //기안작성
+			   case \'btnAppDocCreate\' :$("#reDraftYn").val("Y");  fnAppDocDraft(40);     
+			   break;
+			   // 공문발송
+			   case \'btnOfficialDoc\' : fnOfficialDoc();
+			   break;
+			   // 수신참조리스트 
+			   case \'btnReceiveLog\' : fnAppDocReceiveLog(\'수신참조리스트\',10);
+			   break;
+			   // 시행자리스트
+			   case \'btnOperLog\' : fnAppDocReceiveLog(\'시행자리스트\',40);
+			   break;
+			   // 협조전리스트 
+			   case \'btnCooperationList\' : fnCooperationPop();
+			   break;
+			   // 인쇄이력
+			   case \'btnPrintLog\' : fnAppDocPrintLog();
+			   break;
+			   default:
+			   break;
+			 }
+// 		});
+	}
+
+	//결재 windowPoup
+	function fnApprovalPop(approvalType) {
+		layerPopClose();
+		var callback = \'fnSetApproval\';
+		var form_id = formID;
+		var doc_id = docID;
+		var act_id = $("#hidActID").val();
+		// 접수 확인이나, 접수반려는 사용자가 결재라인의 첫번째로 자동등록 되기때문에 첫번째 activity를 추가 
+		if(approvalType == "rcvConfirm" || approvalType == "rcvReturn" ) {
+			act_id = formActInfo[0].act_id;
+		}
+		var doc_line_m_seq = $("#hidDocLineMSeq").val();
+		var doc_line_s_seq = $("#hidDocLineSSeq").val();
+		var arbitary_yn = $("#hidArbitary").val();		
+		
+		var inputCommentChk = "0";
+		try{
+			var p1022 = eval("p" + act_id + "1022");
+			if (p1022 == 1049) {
+				inputCommentChk = "1";
+			}
+        } catch (err) {
+        	console.log(err);
+        }
+				
+		var paramUrl = "?callback=" + callback + "&form_id=" + form_id + "&doc_id=" + doc_id 
+				+ "&act_id=" + act_id + "&doc_line_m_seq=" + doc_line_m_seq + "&doc_line_s_seq=" 
+				+ doc_line_s_seq + "&arbitary_yn=" + arbitary_yn + "&approvalType=" + approvalType
+				+ "&inputCommentChk="+inputCommentChk;
+		
+		var approvalDialog = $("#approvalPop");
+		var url = \'/eap/ea/docpop/EAAppDocApprovalPop.do\' + paramUrl;
+		var title = "결재";
+		
+		//결재팝업 중앙위치
+		var winHeight = document.body.clientHeight;	// 현재창의 높이
+		var winWidth = document.body.clientWidth;	// 현재창의 너비
+		var winX = window.screenX || window.screenLeft || 0;// 현재창의 x좌표
+		var winY = window.screenY || window.screenTop || 0;	// 현재창의 y좌표
+		
+		var popWidth = 520;
+		var popHeight = 241;
+		
+		var popX = winX + (winWidth - popWidth)/2;
+		var popY = winY + (winHeight - popHeight)/2;
+		
+		window.open(url, "AppDocApproval", "width="+popWidth+",height="+popHeight+",scrollbars=0,top="+popY+ ",left="+popX);
+		
+		
+	}
+	
+	 // 결재이력 windowPoup
+    function fnAppDocApprovalLog() {
+		     	
+		var approvalLogDialog = $("#approvalLogPop");
+		var url = \'/eap/ea/docpop/EAAppDocApprovalLogViewPop.do?doc_id=\' + docID;
+		
+		layerPopOpen(url, "", "결재이력", "880", "", "2");
+		
+    }
+	 
+ 	// 문서수정이력 $("#btnModLog")
+    function fnAppDocModLog() {
+		
+    	var docModLogDialog = $("#docModLogPop");
+		var url = \'/eap/ea/docpop/EAAppDocModLogViewPop.do?doc_id=\' + docID;
+				
+		window.puddDlgObj = Pudd.puddDialog({
+		 	
+			width : 800
+		,	height : 360			 
+		,	modal : true			// 기본값 true
+		,	draggable : false		// 기본값 true
+		//,	resize : true
+				
+		,	header : {
+		 	
+				title : "문서수정이력"
+			,	minimizeButton : true	// 기본값 false
+			,	closeButton : true	// 기본값 true
+		}
+		,	body : { 				
+				iframe : true
+			,	url : url
+			}				
+		});
+		
+				
+     }
+ 	
+ 	// 수신참조,수신처,시행,회람이력
+    function fnAppDocReceiveLog(name,rsvDiv) {
+ 		
+    	var docReceiveLoDialog = $("#docReceiveLogPop");
+		var url = \'/eap/ea/docpop/EAAppDocReceiveLogViewPop.do?doc_id=\' + docID + \'&receive_div=\'+rsvDiv;
+		
+		layerPopOpen(url, "", name, "850", "", "2");
+		
+     }
+
+    //협조전 리스트   $("#btnCooperationList")
+	function fnCooperationPop() {
+		
+    	var docCooperationDialog = $("#docCooperationPop");
+		var url = \'/eap/ea/docpop/EAAppDocCooperationsViewPop.do?doc_id=\' + docID;
+		
+		layerPopOpen(url, "", "협조리스트", "850", "", "2");
+    }
+    
+	//인쇄 이력   $("#fnAppDocPrintLog")
+    function fnAppDocPrintLog() {
+		
+    	var docPrintLogDialog = $("#docPrintLogPop");
+		var url = \'/eap/ea/docpop/EAAppDocPrintLogViewPop.do?doc_id=\' + docID;
+		
+		layerPopOpen(url, "", "인쇄이력", "850", "", "2");
+		    	
+    }
+	
+	
+	// 결재라인수정팝업
+    function fnAppDocLineModify() {    	
+    	// 2016-09-05 lpopup z-index 조정
+		//$(\'.pop_sign_head\').css( "zIndex", 1000 );
+        var dialog = $("#docLineModifyPop");
+    	var url = \'/eap/ea/docpop/EAAppDocLinePop.do?callback=fnSetModify&form_id=\' + formID + \'&doc_id=\' + docID + \'&cooperateDocId=\' + cooperateDocId + \'\';
+    	var title = "결재라인수정";
+    	
+    	
+/*     	 window.puddDlgObj = Pudd.puddDialog({
+			 
+				width : 812
+			,	height : 746
+			 
+			,	modal : true			// 기본값 true
+			,	draggable : true		// 기본값 true
+			,	resize : false
+					
+			,	header : {
+				 
+				title : title
+				,	minimizeButton : true	// 기본값 false
+				,	closeButton : true	// 기본값 true
+			}
+			,	body : {
+				 
+				iframe : true
+			,	url : url
+			
+		
+			}
+			
+			});   */
+    	
+    	 layerPopOpen(url, "", "결재라인수정", "829", "", "2");
+    	//$(\'.pop_sign_head\').css( "zIndex", 1 );
+    	
+	}
+
+	// 문서번호수정 팝업
+    function fnAppDocNumberingModify() {
+		
+		var numberingModDialog = $("#numberingModPop");
+		var url = \'/eap/ea/docpop/EAAppDocNumberingModPop.do?doc_id=\' + docID + \'&form_id=\' + formID + \'&callback=fnSetModify\';
+		var title = "문서번호수정";
+		
+		layerPopOpen(url, "", "문서번호수정", "800", "", "2");
+		
+    }
+
+<!-- 반려이력 버튼 관련  스크립트 -->
+<!-- 2016/02/12 최민지 -->
+	
+	// 반려이력 팝업
+    function fnAppDocReturnLog() {	
+		 
+		var returnLogDialog = $("#returnLogPop");
+		var url = \'/eap/ea/docpop/EAAppDocReturnLogPop.do?doc_id=\' + docID + \'\';
+		var title = "반려이력";
+		
+		layerPopOpen(url, "", "반려이력", "850", "", "2");
+			
+    }
+
+	// 인쇄/미리보기
+	function fnAppDocPrint(mode, type, area) {
+	    intWidth = $("#hidDocWidth").val();
+	    intHeight = screen.height - 300;
+	
+	    intLeft = screen.width / 2 - intWidth / 2;
+	    intTop = screen.height / 2 - intHeight / 2 - 40;
+	
+	    var div = "0";
+	    //인쇄이력  div - 1:인쇄 / 2:미리보기 / 3:pdf변환 / 4:pdf메일전송
+	    if(mode == "P"){ div = "1"; }
+	    else{ div = "2"; }
+	    //인쇄 카운트
+	    fnPrintCnt(div);
+	
+	    //type - 1:html로 인쇄 / 2:이미지로 인쇄
+	    
+	    var url = "/eap/ea/docpop/EAAppDocPrintPop.do?doc_id=" + docID + "&form_id=" + formID + "&p_doc_id=" + pDocID + "&mode=" + mode + "&doc_auth=" + docAuth + "&type=" + type + "&area=" + area +"&spDocId=" + spDocId;
+        var target = "AppDocPrint";	    
+	    window.open(url, target, \'menubar=0,resizable=0,scrollbars=1,status=no,titlebar=0,toolbar=no,width=\' + intWidth + \',height=\' + intHeight + \',left=\' + intLeft + \',top=\' + intTop);
+	}
+	
+	// 인쇄 카운트
+    function fnPrintCnt(div) {
+        $.ajax
+	    ({
+	        type: "POST"
+		    , dataType: "json"
+		    , url: \'/eap/ea/docpop/EAUpdateAppdocPrintCnt.do\'
+		    , data: { 
+					docID : docID, 
+					div : div 
+			    }
+		    , success: function (res) {
+		    	//alert(JSON.stringify(res));	
+		    }
+	    });    
+        
+    }
+
+    function fnAttachFileModify() {  
+    	
+
+    	$("#uploaderView").prop("src","/gw/ajaxFileUploadProcView.do?uploadMode=U&pathSeq=100");   
+    	 
+    	$("#uploaderView").on("load", function(){
+    		
+
+    		$("#uploaderView").show();
+       	   
+    		existingFileList = attachFileList;
+    		
+    		if($("#uploaderView")[0].contentWindow.fnAttFileListBinding != null){
+    	 		   $("#uploaderView")[0].contentWindow.fnAttFileListBinding(attachFileList);
+	   	    }else{
+	   	 		   callbackData = attachFileList;   
+	   	    }
+    		
+    		$("#buttonDiv").hide();
+    		$("#fileModDiv").show();
+    		$("#con_newpop").css("height", "auto");
+    	});
+   	 
+    }
+    
+    function fnFileModReasonPop() {
+    	 	   
+    	//첨부파일 업로드 및 콜백
+        if(!$("#uploaderView")[0].contentWindow.fnAttFileUpload()){
+     	   $("#uploaderView")[0].contentWindow.UploadCallback = "fnFileModReasonPop()";
+     	   return;
+        }	 
+    	
+ 	   if(!fnAttFileModifyYN()){ 		 
+ 		  fnPuddDiaLog("question", "수정된 내용이 없습니다. 취소 하시겠습니까?","fnFileModCancle");
+ 	   }else{
+ 		  $("#modifyReason").show(); 	   
+		   
+    	var divContent = document.getElementById( "modifyReason" );
+		   
+		   window.puddDlgObj = Pudd.puddDialog({
+				 
+				width : 400
+			,	height : 100			 
+			,	modal : true			// 기본값 true
+			,	draggable : false		// 기본값 true
+			,	resize : true
+					
+			,	header : {
+				 
+				title : "수정사유"
+				,	minimizeButton : true	// 기본값 false
+				,	closeButton : true	// 기본값 true
+				/* ,	closeCallback : function( puddDlg ) {
+			 			// close 버튼은 내부에서 showDialog( false ) 실행함 - 즉, 닫기 처리는 내부에서 진행됨
+							// 추가적인 작업 내용이 있는 경우 이곳에서 처리
+							if (agent.indexOf("trident") != -1 || agent.indexOf("msie") != -1) {
+								document.getElementById("tempDummy").focus();	
+							}						
+					} */
+			}
+		   ,	body : { 				
+					content : divContent	
+				}		 
+			,	footer : {		 
+					buttons : [
+						{			
+							controlAttributes : { id : "", class : "submit" }// control 자체 객체 속성 설정
+						,	value : "확인"	
+						,	clickCallback : function( puddDlg ) {
+								if ($("#inputModReason").val() == "") {
+						   			fnPuddDiaLog("warning", "수정사유를 입력하여 주십시오","fnModReasonFocus");
+					   				return;
+				   				}else{					   			
+				   					fnModFiles();
+									puddDlg.showDialog( false );
+								}
+							}
+						}
+					,	{			
+							controlAttributes : { id : "", class : "ml5" }// control 자체 객체 속성 설정
+						,	value : "취소"
+						,	clickCallback : function( puddDlg ) {
+								$("#inputModReason").val("");
+								puddDlg.showDialog( false );
+								layerPopClose();
+							}
+						}
+					]
+				}			
+			});
+		}
+    }    
+    
+    function fnModReasonFocus(){
+		$("#inputModReason").focus();
+	}
+    
+    function fnModFiles(){
+    	
+    	var modReason = $("#inputModReason").val();
+    	var tblParam = {};
+    	
+    	tblParam.modifyReason = modReason ;
+    	tblParam.docId = docID;        
+    	tblParam.pVCM_ATTACHFILEINFO = fnAttFileList();
+    	tblParam.modifyFileList = modifyFileList; //첨부파일 수정된 내용
+    	
+        var jsontrans = JSON.stringify(tblParam);
+        
+    	 $.ajax({
+              type:"post"
+             , url: \'/eap/ea/eadocpop/EAAppDocModFiles.do\' 
+             , method: "post"
+             , type: "json"
+             , contentType: "application/json"
+             , data: jsontrans
+             , success: function (data) {
+            	 //fnPuddDiaLog("success", "저장 되었습니다");
+				 Pudd.puddSnackBar({							 
+				  		type	: "success"		// success, error, warning, info
+					,	message : "저장 되었습니다"
+					,	duration : 1000	// 1초 = 1000
+					,   showDoneCallback : function() {
+						 // PDF 첨부파일 미리보기 사용 옵션 1: 사용 0: 미사용
+		            	 if (optionInfo.ea340 == \'1\'){            	  
+		            		 //PDF 뷰어로 인해 전체 새로고침
+		            		 location.reload(true);	            	  
+		            	 }else{	            	  
+		            		 // 첨부파일 뷰어만 수정 
+				             $("#uploaderView").prop("src","/gw/ajaxFileUploadProcView.do?uploadMode=D&pathSeq=100");   
+			            	 $("#uploaderView").on("load", function(){
+				             	callbackFileInfo(data.fileinfo);
+				              	$("#buttonDiv").show();
+				              	$("#fileModDiv").hide();
+			              	}); 	
+		            	 }    
+					}
+				 });            	 				 				 			        	
+             },error: function (request, status, error){
+            	 fnPuddDiaLog("error", "저장에 실패하였습니다");
+            	 $("#inputModReason").val("");
+             }
+         });
+    	
+    }
+    
+    function fnAttFileModifyYN(){
+ 	   var fileList = fnAttFileList().dzUploaderInfoList;
+ 	   var fileChanges = false;
+ 	   
+ 	  modifyFileList = "";
+ 	   for(var i=0;i<fileList.length;i++){
+ 	   		if(fileList[i].fileDiv == "D"){
+ 	   			modifyFileList += "<p class=\\"le text_gray\\">[삭제]"+ fileList[i].fileNm +"</p>";
+ 	   			fileChanges = true;
+   			}else if(fileList[i].fileDiv == "N"){
+   				modifyFileList += "<p class=\\"le\\">[추가]"+ fileList[i].fileNm +"</p>";
+   				fileChanges = true;
+   			}   		
+   	   } 	   
+    	
+	  // 변경여부 체크    	
+ 	  if(!fileChanges){
+		   if(existingFileList.length != fileList.length ){
+			   fileChanges = true;
+		   }else{
+			   var uploader = fileList;
+			   
+			   for(var i=0; i<uploader.length; i++){
+				   for(var j=0; j<existingFileList.length; j++){
+					   if(uploader[i].fileId == existingFileList[j].fileId && uploader[i].fileSn != existingFileList[j].viewOrder){
+						   fileChanges = true;
+						   break;
+					   }
+				   }
+				   
+				   if(fileChanges){
+					   break;
+				   }
+			   }
+		   }
+	   }
+    	
+		return fileChanges;
+    }
+    
+    function fnAttFileList() {       
+        return $("#uploaderView")[0].contentWindow.fnAttFileList();
+    }
+    
+    function callbackFileInfo(info) {    	
+    	if (info) {  //첨부파일 표시
+      	   var list = [];
+     	   if(info.length > 0){
+     		   $.each(info, function( key, value ) {
+     			     var data = {};
+     			     data.fileId = value.file_id;
+     			     data.fileSize = value.file_size;
+//     			     data.fileNm = value.file_nm;	// 물리파일명
+     			     data.fileNm = value.disp_file_nm;	// 실제파일명
+     			     data.filePath = value.file_path;
+     			     data.fileThumUrl = "/gw/cmm/file/fileDownloadProc.do?fileId=" + value.file_id;
+     			     data.fileUrl = "/gw/cmm/file/fileDownloadProc.do?fileId=" + value.file_id;
+     			     list.push(data);			   
+     			 });
+     	   }
+     	   
+     	   attachFileList = list;
+     	   if($("#uploaderView")[0] != null && $("#uploaderView")[0].contentWindow.fnDownLoadFileListBinding != null){
+     		   $("#uploaderView")[0].contentWindow.fnDownLoadFileListBinding(list);
+     	   }else{
+     		   callbackData = list;   
+     	   }
+     }else{
+     	$("#uploaderView").remove();
+     }
+    }
+    
+    function fnFileModCancle() {
+   		$("#uploaderView").prop("src","/gw/ajaxFileUploadProcView.do?uploadMode=D&pathSeq=100");  
+   		$("#uploaderView").on("load", function(){
+	 		$("#buttonDiv").show();
+	 		$("#fileModDiv").hide();
+ 		});
+    }
+    
+    function fnAppDocSecondLine() {
+    	// 2016-09-05 lpopup z-index 조정
+		//$(\'.pop_sign_head\').css( "zIndex", 1000 );
+        var dialog = $("#docLineModifyPop");
+    	var url = \'/eap/ea/docpop/EAAppDocLinePop.do?callback=fnSetModify&form_id=\' + formID + \'&doc_id=\' + docID + \'&secondDraftYn=Y\';
+    	var title = "결재라인지정";
+    	
+    	layerPopOpen(url, "", title, "829", "", "2");
+    	//$(\'.pop_sign_head\').css( "zIndex", 1 );
+    }
+    
+ 	// 발신문서 정보 팝업
+    function fnCooperateDocInfo() {
+ 	   var url = \'/eap/ea/docpop/EAAppDocOriginalInfoViewPop.do?doc_id=\' + cooperateDocId;
+ 	   layerPopOpen(url, "", "발신문서 정보", "850", "", "2");
+    }
+    
+</script>
+
+
+<div id="approvalPop"></div>
+<!-- 결재 window popup  -->
+<div id="fnApprovalPop"></div>
+<!-- 수신참조  다이얼로그 popup -->
+<div id="approvalLogPop"></div>
+<!-- 결재이력 window popup  -->
+<div id="docModLogPop"></div>
+<!-- 문서수정이력 window popup  -->
+<div id="docReceiveLogPop"></div>
+<!-- 수신참조리스트 window popup  -->
+<div id="docCooperationPop"></div>
+<!-- 협조전리스트 window popup  -->
+<div id="docPrintLogPop"></div>
+<!-- 인쇄이력 window popup  -->
+<div id="docReturnLogPop"></div>
+<!-- 반려이력 window popup  -->
+<div id="numberingModPop"></div>
+<!-- 문서번호수정 window popup  -->
+<div id="returnLogPop"></div>
+<!-- 반려이력 window popup  -->
+<div id="docLineModifyPop"></div>
+<!-- 결재라인수정  window popup  -->
+<div id="docCommentPop"></div>
+<!-- 결재특이사항 window popup  -->
+
+<!-- <input type="hidden" id="hidDocBoxUse" name="hidDocBoxUse" /> -->
+<!--  @*문서함 필수사용 여부*@ -->
+
+<!-- <input type="hidden" id="hidReferNum" name="hidReferNum" /> -->
+<!--  @*수신참조 표시 수*@ -->
+<!-- <input type="hidden" id="hidReferNmType" name="hidReferNmType" /> -->
+<!-- @*수신참조 표시 명칭*@ -->
+
+<!-- <input type="hidden" id="hidReceiveNum" name="hidReceiveNum" /> -->
+<!-- @*수신처 표시 수*@ -->
+<!-- <input type="hidden" id="hidReceiveNmType" name="hidReceiveNmType" /> -->
+<!-- @*수신처 표시 명칭*@ -->
+
+<!-- <input type="hidden" id="hidOperNum" name="hidOperNum" /> -->
+<!--  @*시행자 표시 수*@ -->
+<!-- <input type="hidden" id="hidOperNmType" name="hidOperNmType" /> -->
+<!-- @*시행자 표시 명칭*@ -->
+
+<!-- <input type="hidden" id="hidLineDutyGrade" name="hidLineDutyGrade" /> -->
+<!--  @*결재라인 직급/직책*@ -->
+
+<!-- <input type="hidden" id="hidDocID" name="hidDocID" /> -->
+<!--  @*문서번호*@ -->
+<!-- <input type="hidden" id="hidActionYN" name="hidActionYN" /> -->
+<!-- @*문서번호*@ -->
+
+<!-- <input type="hidden" id="hidInterlockUrl" name="hidInterlockUrl" /> -->
+<!--  @*연동정보수정주소*@ -->
+<!-- <input type="hidden" id="hidInterlockWidth" name="hidInterlockWidth" /> -->
+<!-- @*연동정보수정창너비*@ -->
+<!-- <input type="hidden" id="hidInterlockHeight" name="hidInterlockHeight" /> -->
+<!-- @*연동정보수정창높이*@ -->
+<!-- <input type="hidden" id="hidFormDTp" name="hidFormDTp" /> -->
+<!--  @*양식상세구분*@ -->
+
+
+<!-- <input type="hidden" id="hidAppDocReceiveSts" name="hidAppDocReceiveSts" /> -->
+<!-- @*수신처사용 상태*@ -->
+
+<!-- <input type="hidden" id="hidCreateItem" name="hidCreateItem" /> -->
+<!-- @*기안작성시 초기화 항목*@ -->
+<!-- <input type="hidden" id="hidLineDraft" name="hidLineDraft" /> -->
+<!-- @*상신자 결재라인 자동 등록*@ -->
+
+<!-- <input type="hidden" id="hidLineInfo" name="hidLineInfo" /> -->
+<!-- @*필수결재선 보이기*@ -->
+
+<!-- <input type="hidden" id="hidDocWidth" name="hidDocWidth" /> -->
+<!--  @*전자결재 창넓이*@ -->
+
+<!-- <input type="hidden" id="hidModifyReason" /> -->
+<!--  @*수정사유*@ -->
+
+<!-- <input type="hidden" id="hidConfigOper" /> -->
+<!--  @*시행자 필수*@ -->
+
+<!-- <input type="hidden" id="hidAttachYN" /> -->
+<!-- @*첨부파일필수*@ -->
+
+<!-- <input type="hidden" id="hidctlName" /> -->
+<!-- @*프로젝트의 컨트롤이름*@ -->
+
+<input type="hidden" id="hidDocLineMSeq" name="hidDocLineMSeq" value="">
+<input type="hidden" id="hidDocLineSSeq" name="hidDocLineSSeq" value="">
+<input type="hidden" id="hidActID" name="hidActID" value="">
+<input type="hidden" id="hidArbitary" name="hidArbitary" value="">
+
+<input type="hidden" id="hidCActID" name="hidCActID" value="">
+
+<input type="hidden" id="hidPasswdChk" name="hidPasswdChk" value="3000|1▤4000|1▤">
+
+
+<input type="hidden" id="hidDocClose" name="hidDocClose" value="10">
+<input type="hidden" id="hidReturnLog" name="hidReturnLog" value="1">
+
+<input type="hidden" id="hidDocCommentSeq" name="hidDocCommentSeq" value="">
+<input type="hidden" id="hidDocCommentInsertTp" name="hidDocCommentInsertTp" value="1">
+
+<input type="hidden" id="hidCommentModYN" nema="hidCommentModYN" value="true">
+
+<input type="hidden" id="hidDocCollect" name="hidDocCollect" value="0">
+
+<input type="hidden" id="hidDocWidth" name="hidDocWidth" value="900">
+
+<input type="hidden" id="hidInterlockUrl" name="hidInterlockUrl" value="">
+<input type="hidden" id="hidInterlockWidth" name="hidInterlockWidth" value="">
+<input type="hidden" id="hidInterlockHeight" name="hidInterlockHeight" value="">
+<input type="hidden" id="hidFormDTp" name="hidFormDTp" value="">
+<!-- @*기안일자 작성중변경여부 관련*@ -->
+<input type="hidden" id="hdnDraftDt" value="">
+<input type="hidden" id="hdnDraftH" value="">
+<input type="hidden" id="hdnDraftM" value="">
+<input type="hidden" id="isPT" value="">
+<input type="hidden" id="pk" value="">
+<input type="hidden" id="erpCompSeq" value="">
+<input type="hidden" id="reDraftYn" value="">
+<!-- @*반려사용*@ -->
+<input type="hidden" id="hidReturnUse" name="hidReturnUse" value="3000|1▤4000|1▤">
+
+<div class="pop_sign_wrap" id="con_newpop" style="">
+	<div class="pop_sign_head">
+		<div class="psh_btnbox">
+			<!-- 양식팝업 오른쪽 버튼그룹 -->
+			<div class="psh_left">
+				<ul class="mt10 fl">
+					<li><a href="#n" id="btnApprovalLog" class="psh_ico1" title="결재이력" style=""></a></li>
+					<li>
+						<!-- itemClickPrt(event, this, \'Prtlay\') --> <a href="#n" id="btnPrint" onclick="" class="psh_ico2" title="인쇄" style=""></a>
+						<div class="pop_btn_sel" id="pop_sel_view">
+							<ul>
+								<li class="li_mode_1"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'1\')" href="javascript:;">본문</a></li>
+								<li class="li_mode_2"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'2\')" href="javascript:;">결재문서</a></li>
+								<li class="li_mode_3"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'3\')" href="javascript:;">결재문서
+										+ 결재의견</a></li>
+								<li class="li_mode_4"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'4\')" href="javascript:;">결재문서
+										+ 첨부파일리스트</a></li>
+								<li class="li_mode_6"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'6\')" href="javascript:;">결재문서
+										+ 추가항목</a></li>
+								<li class="li_mode_5"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'5\')" href="javascript:;">결재문서
+										+ 결재의견 + 첨부파일리스트</a></li>
+								<li class="li_mode_7"><a onclick="itemClickPrt(event, this, \'Prtlay\', \'7\')" href="javascript:;">결재문서
+										+ 결재의견 + 첨부파일리스트
+										+ 추가항목</a></li>
+								<!-- 
+									<li><a onclick="itemClickPrt(event, this, \'PrtImg\', \'2\')" href="javascript:;">결재문서(이미지인쇄)</a></li>
+									<li><a onclick="itemClickPrt(event, this, \'PrtImg\', \'3\')" href="javascript:;">결재문서 + 결재의견(이미지인쇄)</a></li>
+									<li><a onclick="itemClickPrt(event, this, \'PrtImg\', \'4\')" href="javascript:;">결재문서 + 첨부파일리스트(이미지인쇄)</a></li>
+									<li><a onclick="itemClickPrt(event, this, \'PrtImg\', \'5\')" href="javascript:;">결재문서 + 결재의견 + 첨부파일리스트(이미지인쇄)</a></li>
+									-->
+							</ul>
+						</div>
+					</li>
+					<li><a href="#n" id="btnPreview" onclick="itemClickPrt(event, this, \'PrtPrelay\')" class="psh_ico3" title="문서전체 미리보기" style=""></a></li>
+					<li><a href="#n" id="btnPdfConvert" onclick="" class="psh_ico4" title="PDF 변환" style=""></a>
+						<div class="pop_btn_sel" id="pop_sel_pdf">
+							<ul>
+								<li class="li_mode_1"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'1\')" href="javascript:;">본문</a></li>
+								<li class="li_mode_2"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'2\')" href="javascript:;">결재문서</a></li>
+								<li class="li_mode_3"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'3\')" href="javascript:;">결재문서
+										+ 결재의견</a></li>
+								<li class="li_mode_4"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'4\')" href="javascript:;">결재문서
+										+ 첨부파일리스트</a></li>
+								<li class="li_mode_6"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'6\')" href="javascript:;">결재문서
+										+ 추가항목</a></li>
+								<li class="li_mode_5"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'5\')" href="javascript:;">결재문서
+										+ 결재의견 + 첨부파일리스트</a></li>
+								<li class="li_mode_7"><a onclick="itemClickPrt(event, this, \'Pdflay\', \'7\')" href="javascript:;">결재문서
+										+ 결재의견 + 첨부파일리스트
+										+ 추가항목</a></li>
+							</ul>
+						</div></li>
+					<li><a href="#n" id="btnPdfMailConvert" onclick="" class="psh_ico5" title="메일전송" style="display: none;"></a>
+						<div class="pop_btn_sel" id="pop_sel_mail">
+							<ul>
+								<li class="li_mode_2"><a onclick="itemClickPrt(event, this, \'Maillay\', \'2\')" href="javascript:;">결재문서전체</a></li>
+								<li class="li_mode_3"><a onclick="itemClickPrt(event, this, \'Maillay\', \'3\')" href="javascript:;">결재문서전체(결재의견)</a></li>
+								<li class="li_mode_4"><a onclick="itemClickPrt(event, this, \'Maillay\', \'4\')" href="javascript:;">결재문서전체
+										+ 첨부파일</a></li>
+								<li class="li_mode_5"><a onclick="itemClickPrt(event, this, \'Maillay\', \'5\')" href="javascript:;">결재문서전체(결재의견)
+										+ 첨부파일</a></li>
+							</ul>
+						</div></li>
+				</ul>
+				<div class="mt8 fl">
+					<!-- id 유지해야 디자인이 안깨짐 -->
+					<span class="k-widget k-combobox k-header ea_sign_sel kendoComboBox" style="width: 120px;"><span tabindex="-1" unselectable="on" class="k-dropdown-wrap k-state-default"><input class="k-input ea_sign_sel kendoComboBox" type="text" autocomplete="off" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-readonly="false" aria-autocomplete="list" aria-owns="eaSignSel_listbox" aria-busy="false" aria-activedescendant="71784029-5233-447d-8079-1c4a9dd3d89a" style="width: 100%;"><span tabindex="-1" unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-arrow-s" role="button" tabindex="-1" aria-controls="eaSignSel_listbox">select</span></span></span><input id="eaSignSel" class="ea_sign_sel kendoComboBox" style="width: 120px; display: none;" data-role="combobox" aria-disabled="false" aria-readonly="false"></span>
+					<!-- 							<option>결재문서</option> -->
+					<!-- 							<option id="btnModLog" value="btnModLog" style="display: none;" >문서수정이력</option> -->
+					<!-- 							<option id="btnAppDocCreate" value="btnAppDocCreate" style="display: none;">기안작성</option> -->
+					<!-- 							<option id="btnOfficialDoc" value="btnOfficialDoc" style="display: none;">공문발송</option> -->
+					<!-- 							<option id="btnReceiveLog" value="btnReceiveLog" style="display: none;">수신참조리스트</option> -->
+					<!-- 							<option id="btnOperLog" value="btnOperLog" style="display: none;">시행자리스트</option> -->
+					<!-- 							<option id="btnCooperationList" value="btnCooperationList" style="display: none;">협조전 리스트</option> -->
+					<!-- 							<option id="btnPrintLog" value="btnPrintLog" style="display: none;">인쇄 이력</option> -->
+				</div>
+			</div>
+
+			<!-- 양식팝업 오른쪽 버튼그룹 -->
+			<div class="psh_right">
+				<div class="btn_cen mt8" id="fileModDiv" style="display: none;">
+					<input type="button" id="btnFileMod" class="psh_btn" value="저장"> <input type="button" id="btnFileCancel" class="psh_btn" value="취소">
+				</div>
+				<div class="btn_cen mt8" id="buttonDiv">
+					<span id="txtOperDtKenDal" style="display: none;"> <input type="text" id="txtOperDt" class="ken_dal" value="" style="margin-right: 5px; display: none; float: left; margin-top: 3px; width: 102px;">
+						<input type="text" id="txtOperTmH" class="ken_dal" value="" style="margin-right: 5px; display: none; float: left; margin-top: 3px; width: 45px;">
+						<div class="ken_dal" style="float: left; margin-top: 8px; padding-right: 3px">:</div>
+						<input type="text" id="txtOperTmM" class="ken_dal" value="" style="margin-right: 5px; display: none; float: left; margin-top: 3px; width: 45px;">
+					</span> <input type="button" id="btnCooperateDocInfo" class="psh_btn" style="display: none;" value="발신문서 정보">
+					<input type="button" id="btnAppDocOperation" class="psh_btn" style="display: none;" value="시행"> <input type="button" id="btnAppDocCirculating" class="psh_btn" style="display: none;" value="회람확인">
+					<input type="button" class="psh_btn" id="btnFaceApproval" style="display: none" value="대면결재요청">
+					<input type="button" id="btnAppDocCollect" class="psh_btn" style="display: none" value="회수"> <input type="button" id="btnAppDocReDraft" class="psh_btn" style="display: none" value="재상신"> <input type="button" id="btnAppDocDraft" class="psh_btn" style="display: none" value="상신"> <input type="button" id="btnAppDocSecondLine" class="psh_btn" style="display: none" value="수신 결재라인 지정">
+					<input type="button" id="btnAppDocRcvConfirm" class="psh_btn" style="display: none;" value="접수결재">
+					<input type="button" id="btnAppDocRcvReturn" class="psh_btn" style="display: none" value="접수반려">
+					<input type="button" class="sign psh_btn" id="btnApproval" style="display: none;" value="결재"> <input type="button" id="btnApprovalCancel" class="psh_btn" style="display: none;" value="결재취소">
+					<input type="button" id="btnAppDocNumberingModify" class="psh_btn" style="display: none" value="문서번호수정">
+					<input type="button" id="btnInterlock" class="psh_btn" style="display: none" value="인터락">
+					<span id="btnInterlockNM" style="display: none"></span>  <input type="button" id="btnAppDocModify" class="psh_btn" style="display: none;" value="내용수정">
+					<input type="button" id="btnAttachFileModify" class="psh_btn" style="display: none;" value="첨부파일수정">
+					<input type="button" id="btnAppDocLineModify" class="psh_btn" style="display: none;" value="결재라인수정">
+					<input type="button" id="btnAppDocCancel" class="psh_btn" style="display: none" value="상신취소">
+					<input type="button" id="btnAppDocDelete" class="psh_btn" style="display: none" value="삭제"> <input type="button" id="btnReturnLog" class="psh_btn" style="display: none" value="반려이력">
+
+
+
+					<!-- ~ 까지. -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //pop_head -->
+	<div class="pop_sign_con" style="padding-top: 42px;">
+		<!-- 양식코드 시작 --------------------------------------------------------------------------------------------------->
+		<div id="divform" class="div_form mb20 mt12" style="width: 647px;">
+			<!-- 결재 특이사항 상단 -->
+			<div id="commentTop" class="ea_reply_box mb20" style="">
+
+
+
+
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="stylesheet" type="text/css" href="/gw/css/common.css?ver=20201021">
+<link rel="stylesheet" type="text/css" href="/gw/css/mention.css?ver=20201021">
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+		var selectedEditorBox;
+		var selectedComment;
+		var UPLOAD_COMPLITE = false;
+		var attachFile = [];
+		var recvEmpList = [];
+		
+	    //첨부파일 용량, 갯수제한
+	    var availCapac = "0";
+	    var totalCapac = "0";
+	    var limitFileCount = "0";
+	    
+	    //확장자제한 및 허용파일갯수
+	    var allowExtention = "";
+	    var blockExtention = "";	    
+	    
+		var companyInfo = {};
+		companyInfo.groupSeq = "aproele";
+		companyInfo.compSeq = "1";
+		companyInfo.bizSeq = "5";
+		companyInfo.deptSeq = "387";
+		companyInfo.empSeq = "552";
+		companyInfo.emailAddr = "dykim";
+		companyInfo.emailDomain = "aproele.com";		
+		
+		function searchCommentList(){
+			
+						
+			
+			uploaderReset();
+			
+			
+			selectedEditorBox = $("[name=editorTop]");
+			$("[name=editorTop] .textDiv").html("");
+			$("[name=editorTop] [name=fileGroup]").html("");
+			$("[name=editorTop]").attr("file_id","");
+	        $("[name=editorTop]").find("[name=fileCnt]").html($("[name=editorTop]").find(".fileGroup li[file_type=old],[file_type=new]").length);
+	        $("[name=editorTop]").show();
+	        $("#guardDiv").height(0);
+			
+			
+			var reqData = {};
+			var header = {};
+			var tblParam = {};
+
+			tblParam.companyInfo = companyInfo;
+			tblParam.langCode = "kr";
+			tblParam.moduleGbnCode = "eap";
+			tblParam.moduleSeq = "42061";
+			tblParam.commentType = "";
+			tblParam.commentSeq = "";
+			
+			tblParam.sort = "D"; //정렬방식(D : 최신순, A : 등록순)
+			tblParam.searchWay = ""; //조회방향(D : 하위, U : 상위)
+			
+			if(tblParam.sort == ""){
+				tblParam.sort = "A";
+			}
+			
+			if(tblParam.searchWay == ""){
+				tblParam.searchWay = "D";
+			}			
+			
+			tblParam.pageSize = 1000;
+			
+			reqData.header = header;
+			reqData.body = tblParam;
+			
+			$.ajax({
+	        	type: "post",
+	    		url: \'/gw/api/SearchCommentList.do\',
+	    		contentType: "application/json",
+	    		data: JSON.stringify(reqData) ,
+	    		async: false,
+	    		success: function (data) {
+	    			
+	    			$(".commentView").addClass("replyIn").html("");
+	    			
+	    			if(data.result != null && data.result.commentList != null && data.result.commentList.length > 0){
+	    				$.each(data.result.commentList, function( key, commentInfo ) {
+	    					commentAppend(commentInfo);
+	    				});
+	    			}
+	    			
+	    			sizeInitDelay();
+	    		} ,
+			    error: function (data) {
+					//오류
+			    }
+	    	});
+		}
+		
+		function convertTextToHtmlMention(text){
+			
+			if(text.indexOf("|>@empseq=\\"") > -1){
+				
+				var startIdx = text.indexOf("|>@empseq=\\"");
+				var endIdx = text.indexOf("\\"@<|");
+				
+				
+				var resultHtml = text.substr(0,startIdx);
+				
+				var userInfo = text.substr(startIdx + 11, endIdx-startIdx-11).split("\\",name=\\"");
+				
+				if(userInfo.length == 2){
+
+					var model_mention = $("#editorBoxModel [name=mentionSpan]").clone();
+					
+					if(userInfo[0] == "552"){
+						$(model_mention).addClass("myMention");
+					}else{
+						$(model_mention).addClass("opMention");
+					}
+					
+					$(model_mention).attr("empseq",userInfo[0]);
+					$(model_mention).attr("value",userInfo[1]);
+					resultHtml = resultHtml + $(model_mention)[0].outerHTML;
+				}
+				
+				resultHtml = resultHtml + text.substr(endIdx + 4);
+				
+				return convertTextToHtmlMention(resultHtml);
+				
+				
+			}else{
+				return text;
+			}
+		}
+		
+		function commentAppend(obj){
+			var model = $("#editorBoxModel [name=commentDiv]").clone();
+
+			$(model).attr("comment_seq",obj.commentSeq);
+			$(model).attr("top_level_comment_seq",obj.topLevelCommentSeq);
+			$(model).attr("parent_comment_seq",obj.parentCommentSeq == null ? "" : obj.parentCommentSeq);
+			$(model).attr("depth",obj.depth);
+			$(model).find(".createDate").html(obj.createDate);
+			
+			// 댓글 등록 사용자 팝업 호출 함수
+			$(model).find("[name=toEmpProfile]").click(function(){
+				openEmpProfileInfo(obj.compSeq, obj.deptSeq, obj.createSeq);
+			})
+			
+			//대댓글
+			if(obj.parentCommentSeq != null && obj.parentCommentSeq != ""){
+				$(model).addClass("reply");
+			}
+
+			if(obj.useYn == "Y"){
+				$(model).attr("comp_seq",obj.compSeq);
+				$(model).attr("dept_seq",obj.deptSeq);
+				$(model).attr("emp_seq",obj.createSeq);
+				$(model).attr("emp_name",obj.empName);
+				$(model).attr("file_id",obj.fileId == null ? "" : obj.fileId);
+				$(model).find(".userName").html(obj.empName);
+				
+				var replaceContents = convertUserWriteTagToText(obj.contents);
+				replaceContents = replaceAllPkg(replaceContents,"\
+","</br>");
+				
+				//링크처리
+				replaceContents = replaceURLWithHTMLLinks(replaceContents);
+				
+				$(model).find(".chatMsg").html(convertTextToHtmlMention(replaceContents));
+				$(model).find(".userImg img").attr("src", "/upload/img/profile/aproele/" + obj.createSeq + "_thum.jpg");
+				
+				//버튼처리
+				if("" == "Y"){
+					
+				}else if(obj.createSeq != "552"){
+					
+					//관리자 처리
+					if("" == "D"){
+						$(model).find("[name=liEdt]").remove();
+					}else if("" == "E"){
+						$(model).find("[name=liDel]").remove();
+					}else{
+						$(model).find("[name=liEdt]").remove();
+						$(model).find("[name=liDel]").remove();						
+					}
+					
+				}
+				
+				//첨부파일 바인딩
+				if(obj.fileList.length > 0){
+					var model_file = $("#editorBoxModel [name=chatEtc]").clone();
+					$(model_file).find(".file_group li").remove();
+					
+					//이미지 미리보기 바인딩
+			        
+					
+					//첨부파일 리스트 바인딩
+	   				$.each(obj.fileList, function( key, fileInfo ) {
+	   					var model_file_li = $("#editorBoxModel [name=fl]").clone();
+	   					
+	   					$(model_file_li).attr("file_id",fileInfo.fileId);
+	   					$(model_file_li).attr("file_sn",fileInfo.fileSn);
+	   					$(model_file_li).attr("path_seq",fileInfo.pathSeq);
+	   					$(model_file_li).attr("file_extsn",fileInfo.fileExtsn);
+	   					$(model_file_li).attr("file_size",fileInfo.fileSize);
+	   					$(model_file_li).attr("original_file_name",fileInfo.originalFileName + (fileInfo.fileExtsn == "" ? "" : "." + fileInfo.fileExtsn));
+	   					$(model_file_li).find(".fl img").attr("src", getIconFile(fileInfo.fileExtsn));
+	   					$(model_file_li).find(".fl a").html(fileInfo.originalFileName + (fileInfo.fileExtsn == "" ? "" : "." + fileInfo.fileExtsn) + "<span> (" + byteConvertor(fileInfo.fileSize) + ")</span>");
+	   					$(model_file).find(".file_group").append(model_file_li);
+	   				});
+					
+					$(model).find(".chatMsg").after(model_file);
+				}				
+			}else{
+				$(model).find(".chatMsg").css("color","darkgray");
+				$(model).find(".chatMsg").html("삭제된 댓글입니다.");
+				$(model).find(".commentBtn").remove();
+				$(model).find(".userImg").remove();				
+			}
+			
+			$(".commentView").append(model);
+			
+		}
+		
+		function convertUserWriteTagToText(text) {
+			
+			text = replaceAllPkg(text, "<", "&lt;");
+			text = replaceAllPkg(text, ">", "&gt;");
+			
+			// 멘션 처리
+			text = replaceAllPkg(text, "@&lt;", "@<");
+			text = replaceAllPkg(text, "|&gt;", "|>");
+			
+			return text;
+			
+		}
+		
+		function saveCommentWiteOnly(){
+			selectedEditorBox = $("[editor_mode=top]"); 
+			searchCommentRecvEmpList();
+		}
+		
+		function saveCommentReulstAlert(result){
+				
+		}
+		
+		function saveComment(obj){
+			
+			selectedEditorBox = $(obj).parents("[editor_mode=edt],[editor_mode=rpy],[editor_mode=top]");
+			
+			if($(selectedEditorBox).find("[name=mentionSpan]").length == 0 && $(selectedEditorBox).find(".textDiv").text().trim() == "" && $(selectedEditorBox).find(".fileGroup li").length == 0){
+				alert("저장할 컨텐츠가 없습니다.");
+				return;
+			}else{
+				
+				if(confirm("저장하시겠습니까?")){
+					fnAttFileUpload();	
+				}
+			}
+		}
+		
+		function insertCommonComment(){
+			
+			var reqData = {};
+			var header = {};
+			var tblParam = {};
+			
+			tblParam.companyInfo = companyInfo;
+			
+			tblParam.positionCode = "D1";
+			tblParam.dutyCode = "D2";
+			tblParam.langCode = "kr";
+			tblParam.moduleGbnCode = "eap";
+			tblParam.highGbnCode = "";
+			tblParam.middleGbnCode = "";	
+			tblParam.moduleSeq = "42061";
+			tblParam.commentType = "";
+			tblParam.commentSeq = $(selectedEditorBox).attr("comment_seq");
+			tblParam.topLevelCommentSeq = $(selectedEditorBox).attr("top_level_comment_seq");
+			tblParam.parentCommentSeq = $(selectedEditorBox).attr("parent_comment_seq");
+			tblParam.depth = parseInt($(selectedEditorBox).attr("depth"));
+			tblParam.fileId = $(selectedEditorBox).attr("file_id");
+			
+			//이벤트정보 입력
+			var eventInfo = {};
+			eventInfo.alertYn = "Y";//	string	알림 발송 유무("Y/N")
+			eventInfo.pushYn = "Y";//	string	푸시 발송 유무("Y/N")
+			eventInfo.talkYn = "Y";//	string	대화 발송 유무("Y/N")
+			eventInfo.mailYn = "Y";//	string	메일 발송 유무("Y/N")
+			eventInfo.smsYn = "Y";//	string	SMS 발송 유무("Y/N")
+			eventInfo.portalYn = "Y";//	string	알림 발송 유무("Y/N")
+			eventInfo.timelineYn = "Y";//	string	타임라인 발송 유무("Y/N")
+			eventInfo.recvEmpBulk = "";//	string	특정 수신 집합 코드
+			
+			if(tblParam.parentCommentSeq == null || tblParam.parentCommentSeq == ""){
+				//일반댓글일 경우 전체 수신리스트 반영
+				eventInfo.recvEmpList = recvEmpList;//	array	수신자 리스트	
+			}else{
+				
+				eventInfo.recvEmpList = [];
+				
+				//대댓글일 경우 원댓글 작성자만 추가
+				var parentCommentDiv = $("[name=commentDiv][comment_seq="+tblParam.parentCommentSeq+"]");
+				
+				if(parentCommentDiv.length > 0){
+					var parentCommentUserInfo = {};
+					parentCommentUserInfo.groupSeq = "aproele";
+					parentCommentUserInfo.compSeq = $(parentCommentDiv).attr("comp_seq");
+					parentCommentUserInfo.deptSeq = $(parentCommentDiv).attr("dept_seq");
+					parentCommentUserInfo.empSeq = $(parentCommentDiv).attr("emp_seq");
+					parentCommentUserInfo.langCode = "kr";
+					parentCommentUserInfo.pushYn = "Y";
+					eventInfo.recvEmpList.push(parentCommentUserInfo);
+				}
+			}
+			
+			eventInfo.recvMentionEmpList = [];//	array	멘션 대상자 리스트
+			eventInfo.url = "/ea/docpop/EAAppDocViewPop.do?doc_id=42061&form_id=32";//	string	상세 조회 바로가기 url
+			eventInfo.ignoreCntYn = "Y";//	카운트 갱신 생략여부("Y/N")
+			
+			var model_contents = $(selectedEditorBox).find(".textDiv").clone();
+			
+			//멘션처리
+			if($(selectedEditorBox).find(".textDiv input.mentionSpan").length > 0){
+				
+				$.each($(model_contents).find("input.mentionSpan"), function( key, value ) {
+					$(value).replaceWith("|>@empseq=\\"" + $(value).attr("empseq") + "\\",name=\\"" + $(value).attr("value") + "\\"@<|");
+					
+					//멘션수신리스트 세팅
+					if($(value).attr("compseq") != ""){
+						var recvMentionEmp = {};
+						recvMentionEmp.groupSeq = "aproele";
+						recvMentionEmp.compSeq = $(value).attr("compseq");
+						recvMentionEmp.deptSeq = $(value).attr("deptseq");
+						recvMentionEmp.empSeq = $(value).attr("empseq");
+						eventInfo.recvMentionEmpList.push(recvMentionEmp);
+						
+						//recvMentionEmp.langCode = "kr";
+						//recvMentionEmp.pushYn = "Y";						
+						//eventInfo.recvEmpList.push(recvMentionEmp);
+					}else{
+						var recvMentionEmp = {};
+						recvMentionEmp.groupSeq = "aproele";
+						recvMentionEmp.compSeq = "";
+						recvMentionEmp.deptSeq = "";
+						recvMentionEmp.empSeq = $(value).attr("empseq");
+						eventInfo.recvMentionEmpList.push(recvMentionEmp);
+						
+						//recvMentionEmp.langCode = "kr";
+						//recvMentionEmp.pushYn = "Y";							
+						//eventInfo.recvEmpList.push(recvMentionEmp);
+					}
+				});
+			}
+			
+			$(model_contents).html(replaceAllPkg($(model_contents).html(), "\
+", ""));
+			$(model_contents).html(replaceAllPkg($(model_contents).html(), "<p><br></p>", "<br>"));
+			
+			$.each($(model_contents).find("div"), function( key, value ) {
+				$(value).replaceWith("\
+" + $(value).html());
+			});
+			
+			$.each($(model_contents).find("p"), function( key, value ) {
+				$(value).replaceWith("\
+" + $(value).html());
+			});
+			
+			$.each($(model_contents).find("br"), function( key, value ) {
+				$(value).replaceWith("\
+");
+			});
+			
+			if($(model_contents).text().indexOf("\
+") == 0){
+				tblParam.contents = $(model_contents).text().substring(1);
+			}else{
+				tblParam.contents = $(model_contents).text();
+			}
+	
+			tblParam.commentPassword = "";
+			tblParam.empName = "";
+
+			//이벤트 데이터 입력
+			var eventData = {};
+			
+			//영리전자결재 
+			if(tblParam.moduleGbnCode == "eap"){
+				
+				eventInfo.eventType = "EAPPROVAL";
+				eventInfo.eventSubType = "EA105";
+				
+				eventData.title = "%5B%EC%B1%84%EC%9A%A9%5D%EC%8B%A0%EA%B7%9C%EC%9D%B8%EB%A0%A5%20%EC%B1%84%EC%9A%A9%EC%9D%98%20%EA%B1%B4(SW%201%ED%8C%80%20%EC%9D%B4%EC%83%81%ED%98%84%20%EC%99%B8%201%EB%AA%85)";
+				eventData.title = replaceAllPkg(eventData.title, "&quot;", "\\"");
+				eventData.title = decodeURIComponent(eventData.title);
+				eventData.userSeq = "567";//	string	기안자,결재자 empSeq
+				eventData.menu_id = "2002020000";//	string	결재함 아이디
+				eventData.migYn = "N";//	string	이전문서 여부
+				eventData.doc_no = "%EC%9D%B8%EC%82%AC%ED%8C%80-23-00521";
+				eventData.doc_no = replaceAllPkg(eventData.doc_no, "&quot;", "\\"");
+				eventData.doc_no = decodeURIComponent(eventData.doc_no);
+				eventData.doc_id = tblParam.moduleSeq;
+				eventData.rep_dt = "2023-04-04 11:51";
+				eventData.created_dt = "2023-04-04 11:51";
+				eventData.doc_comment = tblParam.contents;
+				eventData.comment_seq = tblParam.commentSeq;			
+				
+			} else{
+				
+				eventInfo.eventType = "";
+				eventInfo.eventSubType = "";
+				
+				var eventDataParam = "";
+				eventDataParam = replaceAllPkg(eventDataParam, "&quot;", "\\"");
+				
+				$.each(eventDataParam.split("▦"), function(index, value){
+					
+					var eventParamInfo = value.split("|");
+					
+					if(eventParamInfo.length > 1){
+						
+						var eventParamValue = eventParamInfo[1];
+						
+						/*
+						if(eventParamValue == "{empSeq}"){
+							
+							eventParamValue = "552";
+							
+						}else if(eventParamValue == "{commentSeq}"){
+							
+							eventParamValue = tblParam.commentSeq;
+							
+						}else if(eventParamValue == "{contents}"){
+							
+							eventParamValue = tblParam.contents;
+							
+						}
+						*/
+						
+						eval("eventData."+eventParamInfo[0] + " = eventParamValue");
+						
+					}
+				});
+			}
+		
+			eventInfo.data = eventData;//	object	모듈-항목별 추가 데이터
+			tblParam.event = eventInfo;
+			reqData.header = header;
+			reqData.body = tblParam;
+			
+			$.ajax({
+	        	type: "post",
+	    		url: \'/gw/api/InsertComment.do\',
+	    		contentType: "application/json",
+	    		data: JSON.stringify(reqData) ,
+	    		success: function (data) {
+	    			if(data.resultCode == "0"){
+	    				searchCommentList();
+	    				saveCommentReulstAlert("success");
+	    			}else{
+	    				saveCommentReulstAlert("fail");
+	    			}
+	    		} ,
+			    error: function (data) {
+					//오류
+			    	saveCommentReulstAlert("fail");
+			    }
+	    	});
+		}
+		
+		//기존첨부파일 삭제
+		function deleteOldFiles(){
+			if($(selectedEditorBox).find("li[file_type=del]").length > 0){
+				
+				var tblParam = {};
+				tblParam.fileSn = "";
+				tblParam.fileId = $(selectedEditorBox).attr("file_id");
+				
+				$.each( $(selectedEditorBox).find("li[file_type=del]"), function( key, value ) {
+					tblParam.fileSn += (key == 0 ? "" : ",") + $(value).attr("file_sn");
+				});
+				
+				$.ajax({
+		        	type: "post",
+		    		url: \'/gw/updateAttachDetail.do\',
+		    		datatype: "json",
+		    		data: tblParam ,
+		    		success: function (data) {
+		    			if(data.result == "1"){
+		    				searchCommentRecvEmpList();
+		    			}else{
+		    				alert("※ 인증기기 등록후, 재로그인이 필요합니다.");
+		    			}
+		    		} ,
+				    error: function (data) {
+				    	alert("인증기기 승인 여부 옵션에 따라, 관리자의 승인이 필요할 수 있습니다.");
+				    }
+		    	});				
+				
+			}else{
+				searchCommentRecvEmpList();	
+			}
+		}
+		
+		//신규첨부파일 체크 및 업로드
+	    function fnAttFileUpload() {
+	    	
+	        if (attachFile.length == 0){
+	        	deleteOldFiles();
+	        }else{
+	            var path = \'/gw/ajaxFileUploadProcComment.do\';
+	            var abort = false;
+	            var formData = new FormData();
+	            
+	            for (var x = 0; x < attachFile.length; x++) {
+	                formData.append("file" + x, attachFile[x]);
+	            }
+	            
+	            formData.append("absolPath", "/home/upload/comment");
+				formData.append("moduleGbnCode", "eap");
+				formData.append("moduleSeq", "42061");
+	            formData.append("fileId", $(selectedEditorBox).attr("file_id"));
+	            
+	            fnSetProgress();
+
+	            var AJAX = $.ajax({
+	                url: path,
+	                type: \'POST\',
+	                xhr: function () {
+	                    myXhr = $.ajaxSettings.xhr();
+
+	                    if (myXhr.upload) {
+	                        myXhr.upload.addEventListener(\'progress\', progressHandlingFunction, false);
+	                        myXhr.abort;
+	                    }
+	                    return myXhr;
+	                },
+	                success: completeHandler = function (data) {
+	                    fnRemoveProgress();
+						UPLOAD_COMPLITE = true;
+						$(selectedEditorBox).attr("file_id", data.fileId);
+						deleteOldFiles();
+	                },
+	                error: errorHandler = function () {
+
+	                    if (abort) {
+	                        alert(\'업로드를 취소하였습니다.\');
+	                    } else {
+	                        alert(\'첨부파일 처리중 장애가 발생되었습니다. 다시 시도하여 주십시오\');
+	                    }
+
+	                    UPLOAD_COMPLITE = false;
+	                    fnRemoveProgress();
+	                },
+	                data: formData,
+	                cache: false,
+	                contentType: false,
+	                processData: false
+	            });
+
+	            parent.document.getElementById("UploadAbort").onclick = function () {
+	                fnRemoveProgress();
+	                abort = true;
+	                AJAX.abort();
+	            };
+	        }	
+	    }
+		
+	    function progressHandlingFunction(e) {
+	        if (e.lengthComputable) {
+	        	document.getElementById("uploadStat").innerHTML = parseInt((e.loaded / e.total) * 100);
+	        	document.getElementById("uploadStatByte").innerHTML = parseInt((e.loaded/1000)) + "/" + parseInt((e.total/1000));
+	        }
+	    }
+	    
+	    function fnSetProgress() {
+	        if (parent.document.getElementById("UploadProgress") != null) {
+	        	parent.document.getElementById(\'UploadProgress\').style.display = \'block\';  
+	        } else {
+				var newDiv = document.createElement("div");        	
+	        	
+	            var progTag = "<div id=\'UploadProgress\' style=\'position: absolute;width: 100%;background-color: red;height: 200%;z-index: 99999;top: 0;background: white;opacity: 0.8;\'>";
+	            progTag += "<div style=\'padding-top: 100px;\'>";
+	            progTag += "<div style=\'text-align: center;  width: 100%; height:122px;\'>";
+	            progTag += "<p style=\'font-size: 20px;  font-family:initial;\'>" + \'첨부파일 업로드중\' + "</p>";
+		        progTag += "<p style=\'padding: 20px;font-size: 30px;font-family:initial;\'><span id=\'uploadStat\'>0</span>  %</p>";
+		        progTag += "<p style=\'font-size:15px;font-family:initial;\'>( <span id=\'uploadStatByte\'>0/0</span> ) KByte</p>";
+		        progTag += "<p style=\'padding-top: 10px;\'><input id=\'UploadAbort\' style=\'font-weight: 600;  width: 130px;  cursor: pointer;margin: 5px;background:#000000;color:#FFFFFF;padding:0 8px; height:30px; border-bottom:1px solid #909090;line-height:22px;\' type=\'button\' value=\'" + \'취소\' + "\' /></p>";
+	            progTag += "</div>";   
+	            
+	            newDiv.innerHTML  = progTag;
+	            
+	            parent.document.getElementsByTagName("body")[0].appendChild(newDiv);
+	        }
+	    }
+
+	    function fnRemoveProgress() {
+	    	parent.document.getElementById(\'UploadProgress\').style.display = \'none\';
+	    }		
+		
+	    function handleFileSelect(evt) {
+	    	
+	        evt.stopPropagation();
+	        evt.preventDefault();
+	        
+	        var files = evt.target.files;
+
+	        var overlabCheck = true;
+	        
+	        for (var i = 0, f; f = files[i]; i++) {
+
+	            if(limitFileCount != "" && limitFileCount != "0" && limitFileCount <= $(selectedEditorBox).find("[name=editorFile]").length){
+	            	alert("업로드 제한 파일 갯수를 초과하였습니다.\
+(설정 갯수 :" + limitFileCount + "개)");
+	            	overlabCheck = false;
+	            	return;
+	            }
+	            
+	            if(overlabCheck && availCapac != "" && availCapac != "0" && f.size > (availCapac*1048576)){
+	            	alert("업로드 전체용량을 초과하였습니다.\
+(설정용량:" + availCapac +"MB)");
+	            	overlabCheck = false;
+	            	return;
+	            }
+	            
+	            if(overlabCheck && totalCapac != "" && totalCapac != "0"){
+	            	var totalCapacNow = f.size;
+	            	
+	        		$.each($(selectedEditorBox).find("[name=editorFile]"), function( key, value ) {
+	        			if(!isNaN(parseInt($(value).attr("file_size")))){
+	        				totalCapacNow += parseInt($(value).attr("file_size"));
+	        			}
+					});
+	        		
+	        		if(totalCapacNow > (totalCapac*1048576)){
+	        			alert("업로드 전체용량을 초과하였습니다.\
+(설정용량:" + totalCapac +"MB)");
+		            	overlabCheck = false;
+		            	return;	        			
+	        		}
+	            }	            
+
+	        	if(overlabCheck){
+	        		
+	        		var file_name = ConvertSystemSourcetoHtml(f.name);
+
+	        		$.each($(selectedEditorBox).find("li[file_type=old],[file_type=new]"), function( key, value ) {
+						
+						if(file_name == $(value).attr("original_file_name")){
+		                    alert("같은파일이 이미 첨부되었습니다." + "\\r\
+[" + f.name + "]");
+		                    overlabCheck = false;
+		                    return;
+						}
+					});
+	        	}
+	        	
+	            //업로드 제한 확장자 체크
+	            if(overlabCheck){
+	            	var extsn = getExtensionOfFilename(f.name);
+	            	
+	        		if(allowExtention != "" && ("|" + allowExtention + "|").indexOf("|" + extsn.substring(1) + "|") == -1){
+	        			var alertPermit = "허용되지 않은 확장자입니다.\
+[허용확장자 : {0}]";
+	        			overlabCheck = false;
+	        			alert(alertPermit.replace("{0}", allowExtention.replace(/\\|/g, ", ")));
+	        			return;
+	        		}else if(blockExtention != "" && ("|" + blockExtention + "|").indexOf("|" + extsn.substring(1) + "|") > -1){
+	        			var alertLimit = "제한된 확장자입니다.\
+[제한확장자 : {0}]";
+	        			overlabCheck = false;
+	        			alert(alertLimit.replace("{0}", blockExtention.replace(/\\|/g, ", ")));
+	        			return;
+	        		}else if(extsn == -1){
+	        			overlabCheck = false;
+	        			alert("확장자가 없는 파일은 첨부할 수 없습니다.");
+	        			return;
+	        		}
+	            }
+	        	
+	        	if(overlabCheck){
+
+	        		attachFile.push(f);
+
+	                var fileEx = "";
+	                var lastDot = f.name.lastIndexOf(\'.\');
+	                
+	                if(lastDot > 0){
+	                	fileEx = f.name.substr(lastDot + 1);
+	                }
+	                
+	                var model_file = $("#editorBoxModel [name=editorFile]").clone();
+	                $(model_file).attr("file_type", "new");
+	                $(model_file).attr("original_file_name", ConvertSystemSourcetoHtml(f.name));
+	                $(model_file).attr("file_size", f.size);
+	                $(model_file).find("[name=icon]").attr("src", getIconFile(fileEx));
+	                $(model_file).find(".fileTxt").html(ConvertSystemSourcetoHtml(f.name) + "<span> (" + byteConvertor(f.size) + ")</span>");
+	                $(selectedEditorBox).find("[name=fileGroup]").append(model_file);
+	                $(selectedEditorBox).find("[name=fileGroup]").show();
+	        	}
+	        }
+	        
+	      	$(\'#uploadFile\').val("");
+	        
+	        //첨부파일 전체카운트 세팅
+	        $(selectedEditorBox).find("[name=fileCnt]").html($(selectedEditorBox).find(".fileGroup li[file_type=old],[file_type=new]").length);
+	        
+			//에디터 사이즈 갱신
+	        sizeInitDelay();
+	    }
+	    
+	    function getIconFile(fileEx){
+	       	
+	           var file_name;
+
+	           //확장자정규식
+	           var expBmp = /bmp/i;
+	           var expCsv = /csv/i;
+	           var expGif = /gifx/i;
+	           var expHwp = /hwp/i;
+	           var expJpg = /jpg|jpeg/i;
+	           var expPdf = /pdf/i;
+	           var expPng = /png/i;
+	           var expTif = /tif/i;
+	           var expWord = /word/i;
+	           var expXls = /xls|xlsx/i;
+	           var expZip = /zip/i;
+
+	           if (expBmp.test(fileEx)) {
+	               file_name = "ico_bmp";
+	           } else if (expCsv.test(fileEx)) {
+	               file_name = "ico_csv";
+	           } else if (expGif.test(fileEx)) {
+	               file_name = "ico_gif";
+	           } else if (expHwp.test(fileEx)) {
+	               file_name = "ico_hwp";
+	           } else if (expJpg.test(fileEx)) {
+	               file_name = "ico_jpg";
+	           } else if (expPdf.test(fileEx)) {
+	               file_name = "ico_pdf";
+	           } else if (expPng.test(fileEx)) {
+	               file_name = "ico_png";
+	           } else if (expTif.test(fileEx)) {
+	               file_name = "ico_tif";
+	           } else if (expWord.test(fileEx)) {
+	               file_name = "ico_word";
+	           } else if (expXls.test(fileEx)) {
+	               file_name = "ico_xls";
+	           } else if (expZip.test(fileEx)) {
+	               file_name = "ico_zip";
+	           } else {
+	               file_name = "ico_etc";
+	           }
+	           
+	           return "/gw/Images/mention/" + file_name + ".png";
+	    }	    
+	    
+	    function delFile(target) { //파일삭제
+	    		    	
+	    	var targetObj = $(target).parents("[name=editorFile]");
+	    	
+	    	if($(targetObj).attr("file_type") == "new"){
+	    		
+		        var attachTemp = [];
+	    		
+				$.each( attachFile, function( key, value ) {
+					if(ConvertSystemSourcetoHtml(value.name) != $(targetObj).attr("original_file_name")){
+						attachTemp.push(value);
+					}
+				});
+		        
+		        attachFile = attachTemp;
+		        $(targetObj).remove();
+		        $(\'#uploadFile\').val("");
+		        
+	    	}else{
+	    		//기존파일 삭제
+	    		$(targetObj).attr("file_type", "del").hide();
+	    	}
+	        
+	        //첨부파일 전체카운트 세팅
+	        $(selectedEditorBox).find("[name=fileCnt]").html($(selectedEditorBox).find(".fileGroup li[file_type=old],[file_type=new]").length);
+	    }
+	    
+	    function ConvertSystemSourcetoHtml(str){
+		   	 str = str.replace(/</g,"&lt;");
+		   	 str = str.replace(/>/g,"&gt;");
+		   	 str = str.replace(/\\"/g,"&quot;");
+		   	 str = str.replace(/\\\'/g,"&#39;");
+		   	 str = str.replace(/\
+/g,"<br />");
+		   	 return str;
+	  	}
+	    
+	    function byteConvertor(bytes) {
+	    	bytes = parseInt(bytes);
+	    	var s = [\'Byte\', \'KB\', \'MB\', \'GB\', \'TB\', \'PB\'];
+	    	var e = Math.floor(Math.log(bytes)/Math.log(1024));
+	    	if(e == "-Infinity") return "0 "+s[0]; 
+	    	else return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+	    }
+	    
+		$(document).ready(function() {
+			
+			
+			//첨부파일 선택 이벤트
+			document.getElementById(\'uploadFile\').addEventListener(\'change\', handleFileSelect, false);
+			
+			//타이틀 화살표 폴딩기능
+			$(".commentTitle").on("click",function(){
+				$(this).find("span").toggleClass(\'on\');
+				$(".commentView").toggle();
+			});
+			
+			//첨부파일 접고펴기
+			$(".fileModifyTit").on("click",function(){
+				$(this).toggleClass("on");
+				$(this).parent().parent().find(".fileGroup").toggle();
+			});
+			
+			//첨부파일 파일찾기 액션(임시) :: 개발 적용 시 삭제
+			$(\'#fileUpload\').on("click",function() {
+				selectedEditorBox = $(this).parents("[editor_mode=edt],[editor_mode=rpy],[editor_mode=top]");
+			  	$(\'#uploadFile\').click();
+			});
+			
+			
+			mentionEventSet();
+			
+			searchCommentList();
+
+			sizeInitDelay();
+			
+		});
+		
+		function mentionEventSet(){
+			$(".textDiv").bind("click", function(event) {
+				
+				var textPosi = window.getSelection().getRangeAt(0).startOffset;
+				var contentsLengthNow = window.getSelection().getRangeAt(0).startContainer.length;				
+				
+				if(window.getSelection().getRangeAt(0).startContainer.textContent.substr(textPosi-1,1) == "@"){
+					
+					searchEmptyCnt = 0;
+					$(".mentionListBox").attr("searchStartIdx", textPosi);
+					$(".mentionListBox").attr("contentsLength", contentsLengthNow);					
+										
+				}else{
+					removeMention();
+				}				
+			});
+			
+			$(".textDiv").bind("paste", function(e) {
+				if(e.originalEvent.clipboardData == null){
+					pasteHtmlAtCaret(ConvertSystemSourcetoHtml(window.clipboardData.getData("Text")));
+				}else{
+					pasteHtmlAtCaret(ConvertSystemSourcetoHtml(e.originalEvent.clipboardData.getData(\'Text\')));
+				}
+				
+				return false;
+			});
+			
+			$(".textDiv").bind("keydown", function(event) {
+				if($(".mentionListBox").css("display") != "none"){
+					if(event.which == 38 || event.which == 40 || event.which == 13){
+						  return false;
+					  }					
+				}else{
+
+				}
+			});
+			
+			$(".textDiv").bind("keyup", function(event) {
+				
+				if(event.which == 8 || event.which == 46){
+					searchEmptyCnt = 0;
+				}
+					
+				if($(".mentionListBox").css("display") != "none"){
+					
+					  if(event.which == 38){
+						  //위쪽 방향키  
+						  if($(".mentionListBox li.on").prev().length > 0){
+							  var liTo = $(".mentionListBox li.on").prev();
+							  $(".mentionListBox li.on").removeClass("on");
+							  $(liTo).addClass("on");
+							  $(liTo)[0].scrollIntoView(false);							  
+						  }
+						  
+						  return false;
+						  
+					  }else if(event.which == 40){
+						  //아래쪽 방향키
+						  if($(".mentionListBox li.on").next().length > 0){
+							  var liTo = $(".mentionListBox li.on").next();
+							  $(".mentionListBox li.on").removeClass("on");
+							  $(liTo).addClass("on");
+							  $(liTo)[0].scrollIntoView(false);
+						  }
+						  
+						  return false;
+						  
+					  }else if(event.which == 13){
+						  //멘션 사용자 삽입
+						  appendMention($(".mentionListBox li.on"));
+						  return false;
+						  
+					  }else if(event.which == 27 || event.which == 37 || event.which == 39){
+						  //좌우 방향키, ESC 입력 시 멘션리스트 숨김
+						  removeMention();				  
+						  return false;
+					  }
+				}
+				
+				var searchStartIdx = $(".mentionListBox").attr("searchStartIdx");
+				var contentsLength = $(".mentionListBox").attr("contentsLength");
+				var textPosi = window.getSelection().getRangeAt(0).startOffset;
+				var contentsLengthNow = window.getSelection().getRangeAt(0).startContainer.length;
+	
+				if(searchStartIdx != ""){
+					if(contentsLength < contentsLengthNow){
+						if(searchEmptyCnt > 2){
+							removeMention();						
+						}else{
+							$( ".mentionListBox" ).css("top",$(this).offset().top + 76).css("left",$(this).offset().left);
+							textDivFocus = this;
+							searchMentionList(window.getSelection().getRangeAt(0).startContainer.textContent.substr(searchStartIdx,contentsLengthNow - contentsLength));							
+						}
+
+					}else if(contentsLength > contentsLengthNow){
+						//좌우 방향키, ESC 입력 시 멘션리스트 숨김
+						removeMention();	  
+					}else if(contentsLength = contentsLengthNow){
+						searchEmptyCnt = 0;
+						$( ".mentionListBox" ).hide();
+						$(".mentionListBox").attr("searchStartIdx", textPosi);
+						$(".mentionListBox").attr("contentsLength", contentsLengthNow);			  
+					}
+					
+				}else if(window.getSelection().getRangeAt(0).startContainer.textContent.substr(textPosi -1,1) == "@"){
+					
+					searchEmptyCnt = 0;
+					$(".mentionListBox").attr("searchStartIdx", textPosi);
+					$(".mentionListBox").attr("contentsLength", contentsLengthNow);					
+					
+				}
+				
+			});			
+		}
+
+		var textDivFocus;
+		var searchSeq = 0;
+		var searchEmptyCnt = 0;
+		
+		function appendMention(obj){
+			
+			var model_mention = $("#editorBoxModel [name=mentionSpan]").clone();
+			
+			if($(obj).attr("empseq") == "552"){
+				$(model_mention).addClass("myMention");
+			}else{
+				$(model_mention).addClass("opMention");
+			}
+			
+			$(model_mention).attr("compseq",$(obj).attr("compseq"));
+			$(model_mention).attr("deptseq",$(obj).attr("deptseq"));
+			$(model_mention).attr("empseq",$(obj).attr("empseq"));
+			$(model_mention).attr("value",$(obj).attr("empname"));
+			
+			removeMention();
+			$(textDivFocus).focus();
+			pasteHtmlAtCaret("<mention hidden=\'true\'></mention>");
+			removeSearchText();
+			pasteHtmlAtCaret($(model_mention)[0].outerHTML);
+			
+			//가상화 브라우져 버그조치
+			setTimeout(function(){ removeMention(); }, 100);
+		}
+
+		function replaceSelectionWithHtml(html) {
+		    var range;
+		    if (window.getSelection && window.getSelection().getRangeAt) {
+		        range = window.getSelection().getRangeAt(0);
+		        range.deleteContents();
+		        var div = document.createElement("div");
+		        div.innerHTML = html;
+		        var frag = document.createDocumentFragment(), child;
+		        while ( (child = div.firstChild) ) {
+		            frag.appendChild(child);
+		        }
+		        range.insertNode(frag);
+		    } else if (document.selection && document.selection.createRange) {
+		        range = document.selection.createRange();
+		        range.pasteHTML(html);
+		    }
+		}		
+		
+		function removeSearchText(){
+			var textDivHtml = $(textDivFocus).html();
+			var removeMentionIdx = textDivHtml.indexOf("<mention hidden=\\"true\\"></mention>");
+			var atSignIdx = textDivHtml.substr(0,removeMentionIdx).lastIndexOf("@");
+			$(textDivFocus).html(textDivHtml.substr(0,atSignIdx) + textDivHtml.substr(removeMentionIdx + 33));
+			placeCaretAtEnd();
+			//$(textDivFocus).focusEnd();
+			setTimeout(function(){ placeCaretAtEnd(); }, 100);
+		}
+		
+		function placeCaretAtEnd() {
+			$(textDivFocus).focus();
+		    if (typeof window.getSelection != "undefined"
+		            && typeof document.createRange != "undefined") {
+		        var range = document.createRange();
+		        range.selectNodeContents(textDivFocus);
+		        range.collapse(false);
+		        var sel = window.getSelection();
+		        sel.removeAllRanges();
+		        sel.addRange(range);
+		    } else if (typeof document.body.createTextRange != "undefined") {
+		        var textRange = document.body.createTextRange();
+		        textRange.moveToElementText(textDivFocus);
+		        textRange.collapse(false);
+		        textRange.select();
+		    }
+		}
+		
+		$.fn.focusEnd = function() {
+		    $(this).focus();
+		    var tmp = $(\'<span ></span>\').appendTo($(this)),
+		        node = tmp.get(0),
+		        range = null,
+		        sel = null;
+
+		    if (document.selection) {
+		        range = document.body.createTextRange();
+		        range.moveToElementText(node);
+		        range.select();
+		    } else if (window.getSelection) {
+		        range = document.createRange();
+		        range.selectNode(node);
+		        sel = window.getSelection();
+		        sel.removeAllRanges();
+		        sel.addRange(range);
+		    }
+		    tmp.remove();
+		    return this;
+		}
+		
+		function pasteHtmlAtCaret(html) {
+			
+			var sel, range;
+		    
+		    if (window.getSelection) {
+		        sel = window.getSelection();
+		        if (sel.getRangeAt && sel.rangeCount) {
+		            range = sel.getRangeAt(0);
+		            range.deleteContents();
+		            var el = document.createElement("div");
+		            el.innerHTML = html;
+		            var frag = document.createDocumentFragment(), node, lastNode;
+		            while ( (node = el.firstChild) ) {
+		                lastNode = frag.appendChild(node);
+		            }
+		            range.insertNode(frag);
+
+		            if (lastNode) {
+		                range = range.cloneRange();
+		                range.setStartAfter(lastNode);
+		                range.collapse(true);
+		                sel.removeAllRanges();
+		                sel.addRange(range);
+		            }
+		        }
+		    } else if (document.selection && document.selection.type != "Control") {
+		        document.selection.createRange().pasteHTML(html);
+		    }
+		}
+		
+		function removeMention(){
+			searchEmptyCnt = 0;
+			$( ".mentionListBox" ).hide();
+			$(".mentionListBox").attr("searchStartIdx", "");
+			$(".mentionListBox").attr("contentsLength", "");			
+		}
+		
+		function searchMentionList(empName){
+			
+			if(empName.match(/[ㄱ-ㅎ|ㅏ-ㅣ]/)){
+				return;
+			}
+			
+			var tblParam = {};
+			tblParam.compFilter = "";
+			tblParam.deptFilter = "";
+			tblParam.empFilter = "1_567;1_528;1_552;1_129;1_2;1_361;1_367;1_597";
+			tblParam.empName = empName;
+			
+			searchSeq++;
+			tblParam.searchSeq = searchSeq;
+			
+			$.ajax({
+	        	type: "post",
+	    		url: \'/gw/getMentionList.do\',
+	    		datatype: "json",
+	    		async: true,
+	    		data: tblParam ,
+	    		success: function (result) {
+	    			
+	    			//비동기 마지막 호출만 처리
+	    			if(result.searchSeq == searchSeq){
+		    			//멘션리스트 초기화
+		    			$(".mentionListBox ul").html("");
+		    			
+		    			if(result.mentionList.length > 0){
+		    				
+		    				$.each( result.mentionList, function( key, value ) {
+		    					$(".mentionListBox ul").append("<li onmouseup=\'removeMention();\' onmousedown=\'appendMention(this);\' compseq=\'" + value.compSeq + "\' deptseq=\'" + value.deptSeq + "\' empseq=\'" + value.empSeq + "\' empname=\'" + value.empName + "\' " + (key == 0 ? " class=\'on\'" : "") + "><div class=\'mentionImg\'><img " + (value.picFileYn == "Y" ? "onerror=\'this.src=\\"/gw/Images/temp/pic_Noimg.png\\"\' src=\'/upload/img/profile/aproele/" + value.empSeq + "_thum.jpg\'" : "src=\\"/gw/Images/temp/pic_Noimg.png\\"\'") + " width=\'100%\' /><span class=\'imgCover\'></span></div><dl class=\'mentionInfo\'><dt>" + value.dispEmpName + "</dt><dd>" + value.dispDeptName + "</dd></dl></li>");
+		    				});	    				
+		    				
+		    				searchEmptyCnt = 0;
+		    				$( ".mentionListBox" ).show();
+		    			}else{
+		    				searchEmptyCnt++;
+		    				$( ".mentionListBox" ).hide();
+		    			}	    				
+	    			}
+	    			
+	    		} ,
+			    error: function (result) {
+			    	if(result.searchSeq == searchSeq){
+			    		$( ".mentionListBox" ).hide();	
+			    	}
+			    }
+	    	});			
+		}
+		
+		function searchCommentRecvEmpList(){
+			
+			if(recvEmpList.length > 0){
+				insertCommonComment();
+				return;
+			}
+			
+			var tblParam = {};
+			tblParam.compFilter = "";
+			tblParam.deptFilter = "";
+			tblParam.empFilter = "";
+			
+			$.ajax({
+	        	type: "post",
+	    		url: \'/gw/getCommentRecvEmpList.do\',
+	    		datatype: "json",
+	    		async: true,
+	    		data: tblParam ,
+	    		success: function (result) {
+	    			if(result.recvEmpList != null && result.recvEmpList.length > 0){
+	    				recvEmpList = result.recvEmpList;
+	    			}
+	    			
+	    			insertCommonComment();
+	    		} ,
+			    error: function (result) {
+			    	alert("수신자 리스트 조회 시 오류가 발생했습니다.");
+			    	saveCommentReulstAlert("fail");
+			    }
+	    	});
+		}
+		
+		//멘션 리사이즈
+		$(window).resize(function () {
+			sizeInit();
+		});
+		
+		function sizeInitDelay(){
+			setTimeout(function(){ sizeInit(); }, 200);	
+		}		
+		
+		//멘션 요소에 필요한 사이즈를 제공하는 함수
+		function sizeInit(){
+			
+			var viewSizeWidth = $(".mentionContainer").width();
+			
+			
+			var correction = 180;
+			var correctionFileName = 305;
+			var correctionEditFileName = 60;
+			var correctionImg = 245;
+			var correctionTextDiv = 163;
+			var correctionTextDivReply = 205;
+			$(".chatMsg").width(viewSizeWidth-correction);//텍스트영역
+			$(".chatEtc").width(viewSizeWidth-correction);//첨부영역
+			
+			$(".type1 .chatEtc").width(viewSizeWidth-correction + 140);//첨부영역
+			$(".type1 .reply .chatEtc").width(viewSizeWidth-correction + 115);//첨부영역
+			$(".type2 .chatEtc").width(viewSizeWidth-correction + 110);//첨부영역
+			$(".type2 .reply .chatEtc").width(viewSizeWidth-correction + 75);//첨부영역
+			
+			$(".file_txt").width(viewSizeWidth-correctionFileName);//첨부파일 텍스트영역
+			$(".textDiv").width(viewSizeWidth-correctionTextDiv);//작성영역
+			$("[name=commentDiv].reply .textDiv").width(viewSizeWidth-correctionTextDivReply);//작성영역(대댓글보정)
+			
+			
+			$(".cloneHiddenText").width(viewSizeWidth-correctionTextDiv);//작성복사영역
+			$(".fileTxt").css("max-width",viewSizeWidth-correctionEditFileName);//작성영역 첨부파일 텍스트영역
+			
+			if((viewSizeWidth-correction) < 400){
+				$(".file_img img").width(viewSizeWidth-correctionImg);//이미지 최대지원 사이즈보다 작을 경우 비율적으로 줄여주기
+			};			
+						
+			
+			
+			
+			//height abjust when iframe mode.
+			if(frameElement != null && $(frameElement).attr("forceHeight") == null){
+				frameElement.height = $(document).height();
+			}
+			
+		};		
+		
+		function editorAppend(obj, mode){
+			$(selectedComment).find(".commentBtn").show();
+			$("[name=editorBoxClone]").remove();
+
+			var model = $("#editorBoxModel [name=editorBox]").clone();
+			$(model).attr("name", "editorBoxClone");
+			$(model).addClass(mode);
+			
+			selectedComment = $(obj).parents(".commentDiv");
+			
+			if(mode==\'editWrap\'){
+				//수정
+				$(model).attr("editor_mode", "edt");
+				$(model).attr("comment_seq", $(selectedComment).attr("comment_seq"));
+				$(model).attr("top_level_comment_seq", $(selectedComment).attr("top_level_comment_seq"));
+				$(model).attr("parent_comment_seq", $(selectedComment).attr("parent_comment_seq"));
+				$(model).attr("depth", $(selectedComment).attr("depth"));
+				$(model).attr("file_id", $(selectedComment).attr("file_id"));
+				
+				//기존 컨텐츠 처리
+				$(model).find(".textDiv").html($(selectedComment).find(".chatMsg").html());
+				
+				//기존 첨부파일 처리
+  				$.each($(selectedComment).find("li[name=fl]"), function( key, fileInfo ) {
+  					
+	                var model_file = $("#editorBoxModel [name=editorFile]").clone();
+	                $(model_file).attr("file_type", "old");
+	                var file_name = $(fileInfo).attr("original_file_name");
+[O	                
+	                $(model_file).attr("file_id",$(fileInfo).attr("file_id"));
+	                $(model_file).attr("file_sn",$(fileInfo).attr("file_sn"));
+	                $(model_file).attr("path_seq",$(fileInfo).attr("path_seq"));
+	                $(model_file).attr("file_size",$(fileInfo).attr("file_size"));
+	                $(model_file).attr("original_file_name",file_name);
+	                
+	                $(model_file).find("[name=icon]").attr("src", getIconFile($(fileInfo).attr("file_extsn")));
+	                $(model_file).find(".fileTxt").html(ConvertSystemSourcetoHtml(file_name) + "<span> (" + byteConvertor($(fileInfo).attr("file_size")) + ")</span>");
+	                
+	                $(model).find("[name=fileGroup]").append(model_file);
+	                $(model).find("[name=fileGroup]").show();
+  					
+  				});
+				
+  				$(model).find("[name=fileCnt]").html($(selectedComment).find("li[name=fl]").length);
+				
+				$(selectedComment).append(model);
+				selectedEditorBox = model;
+				
+				//가드Div 높이값 세팅
+				$("#guardDiv").height($("[name=editorTop]").height());
+				
+			}else{
+				//대댓글
+				$(model).attr("editor_mode", "rpy");
+				$(model).attr("comment_seq", "");
+				
+				if($(selectedComment).attr("top_level_comment_seq") == ""){
+					$(model).attr("top_level_comment_seq", $(selectedComment).attr("comment_seq"));
+				}else{
+					$(model).attr("top_level_comment_seq", $(selectedComment).attr("top_level_comment_seq"));
+				}
+				
+				$(model).attr("parent_comment_seq", $(selectedComment).attr("comment_seq"));
+				$(model).attr("depth", parseInt($(selectedComment).attr("depth")) + 1);
+				$(model).attr("file_id", "");
+				
+				//기본멘션 추가
+				var model_mention = $("#editorBoxModel [name=mentionSpan]").clone();
+				
+				if($(selectedComment).attr("emp_seq") == "552"){
+					$(model_mention).addClass("myMention");
+				}else{
+					$(model_mention).addClass("opMention");
+				}				
+				
+				$(model_mention).attr("compseq",$(selectedComment).attr("comp_seq"));
+				$(model_mention).attr("deptseq",$(selectedComment).attr("dept_seq"));
+				$(model_mention).attr("empseq",$(selectedComment).attr("emp_seq"));
+				
+				$(model_mention).attr("value",$(selectedComment).attr("emp_name"));
+				$(model).find(".textDiv").html($(model_mention)[0].outerHTML);
+				
+				$(selectedComment).after(model);
+				selectedEditorBox = model;
+				
+			}
+			
+			mentionEventSet();
+			$(obj).parents(".commentBtn").hide();
+			$("[name=editorTop]").hide();
+			
+			//에디터 사이즈 갱신
+			sizeInitDelay();
+			
+		}
+		
+		function editorRemove(obj){
+			$(selectedComment).find(".commentBtn").show();
+			$(obj).parents("[name=editorBoxClone]").remove();
+			$("[name=editorTop]").show();
+			$("#guardDiv").height(0);
+			selectedEditorBox = $("[name=editorTop]");
+			uploaderReset();
+		}
+		
+		function uploaderReset(){
+			attachFile = [];
+			$(\'#uploadFile\').val("");			
+		}
+		
+		function fileDownload(obj, type){
+			
+			if(type == "def"){
+				type = $($(obj).parents("li").find(".fr a")[0]).attr("name");
+				if(type == "file_save"){
+					type = "direct";
+				}else if(type == "file_viewer"){
+					type = "viewer";
+				}
+			}
+			
+			if(type == "direct"){
+				if("N" == \'Y\'){
+					var fileUrl = window.location.protocol + "//" + location.host + "/gw/cmm/file/fileDownloadProc.do?fileId=" + $(obj).parents("li").attr("file_id") + "&fileSn=" + $(obj).parents("li").attr("file_sn");
+					goForm(fileUrl, "dykim", $(obj).parents("li").attr("original_file_name"));
+				}else{
+					this.location.href = "/gw/cmm/file/fileDownloadProc.do?fileId=" + $(obj).parents("li").attr("file_id") + "&fileSn=" + $(obj).parents("li").attr("file_sn");	
+				}
+			}else if(type == "viewer"){
+    			var checkExtsn = "|hwp|doc|docx|ppt|pptx|xls|xlsx|";
+    			
+    			
+    			
+    			var checkExtsnInline = "|jpeg|bmp|gif|jpg|png|pdf|";
+    			
+    			    			
+    			if(checkExtsnInline.indexOf("|" + $(obj).parents("li").attr("file_extsn").toLowerCase() + "|") != -1){
+    				var timestamp = new Date().getTime();
+    			 	var docViewrPopForm = document.docViewrPopForm;
+    			 	window.open("", "docViewerPop" + timestamp, "width=1000,height=800,history=no,resizable=yes,status=no,scrollbars=yes,menubar=no");
+    			 	docViewrPopForm.action = "/gw/cmm/file/fileDownloadProc.do";
+    			 	docViewrPopForm.target = "docViewerPop" + timestamp ;
+    			 	docViewrPopForm.pathSeq.value = "";
+    			 	docViewrPopForm.fileId.value = $(obj).parents("li").attr("file_id");
+    			 	docViewrPopForm.fileSn.value = $(obj).parents("li").attr("file_sn");
+    			 	docViewrPopForm.moduleTp.value = "gw";
+    			 	docViewrPopForm.submit();				
+    			}else if(checkExtsn.indexOf("|" + $(obj).parents("li").attr("file_extsn").toLowerCase() + "|") != -1){
+    				var timestamp = new Date().getTime();
+    			 	var docViewrPopForm = document.docViewrPopForm;
+    			 	window.open("", "docViewerPop" + timestamp, "width=1000,height=800,history=no,resizable=yes,status=no,scrollbars=no,menubar=no");
+    			 	docViewrPopForm.action = "/gw/docViewerPop.do";
+    			 	docViewrPopForm.target = "docViewerPop" + timestamp ;
+    			 	docViewrPopForm.groupSeq.value = "aproele";
+    			 	docViewrPopForm.fileId.value = $(obj).parents("li").attr("file_id");
+    			 	docViewrPopForm.fileSn.value = $(obj).parents("li").attr("file_sn");
+    			 	docViewrPopForm.moduleTp.value = "gw";
+    			 	docViewrPopForm.submit();    				
+    			}else{
+    				
+    				
+    				
+    				alert("해당 파일은 지원되지 않는 형식입니다.\
+[제공 확장자 : 이미지, pdf, hwp, hwpx, doc, docx, ppt, pptx, xls, xlsx]");
+    				
+    				    				
+    				return;
+    			}				
+			}
+		}
+		
+	    var PimonAXObj;
+		
+	    function goForm(url, loginId, fileNm){
+	    	
+	    	if(loginId == null || loginId == ""){
+	    		alert("파일 다운로드 권한이 없습니다.");
+	    	}else{
+	    		try{
+	    			if(PimonAXObj == null)
+	    			PimonAXObj = PimonAX.ElevatePimonX();
+	    			
+	    			PimonAXObj.FileDownLoad(url, loginId, fileNm, \'EA0F9EE291E3F7B7FA50203E1F8AFCD0\'); // 다운로드파일경로, UserID	
+	    		}catch(e){
+	    			if(e.number != -2147023673)
+	    			alert("파일 다운로드는 IE브라우져에서만 가능합니다.");	
+	    		}
+	    	}
+		}
+		
+		function deleteComment(obj){
+			if(confirm("삭제하시겠습니까?")){
+
+				var reqData = {};
+				var header = {};
+				var tblParam = {};
+
+				tblParam.companyInfo = companyInfo;
+				tblParam.langCode = "kr";
+				tblParam.commentSeq = $(obj).parents(".commentDiv").attr("comment_seq");
+				tblParam.topLevelCommentSeq = $(obj).parents(".commentDiv").attr("top_level_comment_seq");
+				
+				reqData.header = header;
+				reqData.body = tblParam;
+				
+				$.ajax({
+		        	type: "post",
+		    		url: \'/gw/api/DeleteComment.do\',
+		    		contentType: "application/json",
+		    		data: JSON.stringify(reqData) ,
+		    		success: function (data) {
+		    			if(data.resultCode == "0"){
+		    				//$(obj).parents(".commentDiv").remove();
+		    				searchCommentList();
+		    			}else if(data.resultCode == "-1"){
+		    				alert(data.resultMessage);
+		    			}
+		    		} ,
+				    error: function (data) {
+						//오류
+				    }
+		    	});				
+			}
+		}
+		
+		function replaceURLWithHTMLLinks(text) {
+		    var exp = /(\\b(https?|ftp|file):\\/\\/[-A-Z0-9+&@#\\/%?=~_|!:,.;]*[-A-Z0-9+&@#\\/%=~_|])/i;
+		    return text.replace(exp,"<a style=\'color: blue;cursor: pointer;text-decoration: underline;\' href=\'javascript:fnContentsLinkPop(\\"$1\\")\'>$1</a>"); 
+		}
+		
+		function fnContentsLinkPop(linkUrl){
+			
+			var pop = window.open(linkUrl, "_blank");
+
+			try {pop.focus(); } catch(e){
+				console.log(e);//오류 상황 대응 부재
+			}
+			return pop;			
+			
+		}
+		
+		function replaceAllPkg(str, searchStr, replaceStr) {
+			
+			if(str == null){
+				return "";
+			}
+			
+		    return str.split(searchStr).join(replaceStr);
+		    
+		}
+		
+		function getExtensionOfFilename(filename) { 
+			var _fileLen = filename.length; 
+			var _lastDot = filename.lastIndexOf(\'.\'); 
+			// 확장자 명만 추출한 후 소문자로 변경
+			var _fileExt = filename.substring(_lastDot, _fileLen).toLowerCase(); 
+			
+			// 확장자 없는 파일 업로드 제한
+			if(_lastDot == -1){
+				return -1;
+			}
+			
+			return _fileExt; 
+		} 		
+		
+		// 댓글 등록 사용자 정보 팝업
+		function openEmpProfileInfo (comp_seq, dept_seq, emp_seq) {
+
+			if (comp_seq == null && dept_seq == null) {
+				alert("외부계정은 프로필 상세팝업을 제공하지 않습니다.");
+				return;
+			}								
+			
+			var paramUrl = "?compSeq=" + comp_seq + "&deptSeq=" + dept_seq + "&empSeq=" + emp_seq ;
+	
+			var url = \'/gw/empProfileInfo.do\' + paramUrl;
+			
+			var winHeight = document.body.clientHeight;	// 현재창의 높이
+			var winWidth = document.body.clientWidth;	// 현재창의 너비
+			var winX = window.screenX || window.screenLeft || 0;// 현재창의 x좌표
+			var winY = window.screenY || window.screenTop || 0;	// 현재창의 y좌표
+			
+			var popWidth = 520;
+			var popHeight = 241;
+			
+			var popX = winX + (winWidth - popWidth)/2;
+			var popY = winY + (winHeight - popHeight)/2;
+			
+			window.open(url, "사용자프로필", "width="+popWidth+",height="+popHeight+",scrollbars=0,top="+popY+ ",left="+popX);
+			
+		}
+			
+	</script>	
+
+
+ 
+	<div style="margin:0 auto;">
+	<!-- UI Start -------------------------------------------------------------------------------------------------->
+	<div class="mentionContainer type1">
+		<!-- comment box -->
+		<div class="commentBox">
+			<!-- editor Box -->
+			<div name="editorTop" editor_mode="top" comment_seq="" top_level_comment_seq="" parent_comment_seq="" depth="1" file_id="" class="editorBox">
+				<!-- 작성영역 -->
+				<div class="editTextBox">
+					<div class="textDiv" id="textDiv" contenteditable="true" tabindex="0" style="width: 482px;"></div>
+					<textarea class="cloneHiddenText hidden" style="width: 482px;"></textarea>
+					
+					
+					<div class="textBtn">
+						<a onclick="saveComment(this);" href="javascript:void(0)" class="submitBtn">저장</a>
+					</div>
+					
+				</div>
+				
+				<!-- 첨부파일영역 -->
+				
+				<div class="editFileBox">
+					<!-- file title -->
+					<div class="fileTitle">
+						<span class="fileModifyTit">파일첨부</span>
+						<div class="fileModifyInfo">
+							<span>파일 갯수</span>
+							<span name="fileCnt" class="fwb text_blue">0</span>개
+						</div>
+						<div class="fileUploadBtn">
+							<a href="#n" onclick="$(\'#uploadFile\').click();" class="">파일찾기</a>
+							<input id="uploadFile" name="uploadFile" multiple="multiple" type="file" class="hidden">
+						</div>
+					</div>
+					<ul name="fileGroup" class="fileGroup"></ul>
+				</div>
+				
+			</div>
+			
+			<!-- comment view :: replyIn은 댓글생성시 붙여줍니다. 처음엔 없는 클래스임. -->
+			<div class="commentView replyIn"><div name="commentDiv" class="commentDiv" comment_seq="0000000010354040" top_level_comment_seq="0000000010354040" parent_comment_seq="" depth="1" comp_seq="1" dept_seq="406" emp_seq="567" emp_name="오명석" file_id="">
+	    	<div class="userProfile">
+	    	
+				
+			    <div class="userName" style="cursor: pointer;" name="toEmpProfile">오명석</div>
+		    	<div class="createDate">2023-04-05 14:26:50</div>
+		    	<div class="commentBtn">
+		    		<ul>
+								    		
+		    			<li name="liRpy"><a onclick="editorAppend(this,\'editorBox\');" href="javascript:void(0)" class="ico_rpy" title="댓글"></a></li>
+		    					    		
+						
+		    			
+						
+						
+		    			
+						
+		    		</ul>
+		    	</div>
+	    	</div>
+	    	
+	    	<div class="userChat">
+	    		<div class="chatBox">
+	    			<div class="chatBox_in">
+						<div class="chatBox_lt"></div><div class="chatBox_rt"></div><div class="chatBox_lb"></div><div class="chatBox_rb"></div>
+						<span class="chatMsg" style="width: 465px;">입사 예정자 신승욱님 입사일 4/17 변경<br>(본사 인근 거주지 임대 사유)</span>
+					</div>
+	    		</div>
+	    	</div>
+	    </div></div>
+			
+			<!-- 가드Div -->
+			<div id="guardDiv" style="height: 0px;"></div>
+			
+		</div>
+	</div>
+	<!-- UI End -------------------------------------------------------------------------------------------------->	
+	</div>
+	
+	<!-- 멘션목록 -->
+	<div class="mentionListBox" style="z-index:9999;" searchstartidx="" contentslength="">
+		<ul></ul>
+	</div>			
+	
+	<!-- Model -->
+	<div id="editorBoxModel" style="display:none;">
+	
+		<!-- 댓글 -->
+		<div name="commentDiv" class="commentDiv">
+	    	<div class="userProfile">
+	    	
+				
+			    <div class="userName" style="cursor: pointer;" name="toEmpProfile"></div>
+		    	<div class="createDate"></div>
+		    	<div class="commentBtn">
+		    		<ul>
+								    		
+		    			<li name="liRpy"><a onclick="editorAppend(this,\'editorBox\');" href="javascript:void(0)" class="ico_rpy" title="댓글"></a></li>
+		    					    		
+						
+		    			<li name="liEdt"><a onclick="editorAppend(this,\'editWrap\');" href="javascript:void(0)" class="ico_edt" title="수정"></a></li>
+						
+						
+		    			<li name="liDel"><a onclick="deleteComment(this);" href="javascript:void(0)" class="ico_del" title="삭제"></a></li>
+						
+		    		</ul>
+		    	</div>
+	    	</div>
+	    	
+	    	<div class="userChat">
+	    		<div class="chatBox">
+	    			<div class="chatBox_in">
+						<div class="chatBox_lt"></div><div class="chatBox_rt"></div><div class="chatBox_lb"></div><div class="chatBox_rb"></div>
+						<span class="chatMsg" style="width: 465px;"></span>
+					</div>
+	    		</div>
+	    	</div>
+	    </div>	
+	
+		<!-- 에디터 -->
+	   	<div name="editorBox">
+	    	<div class="editorBox">
+				<div class="editTextBox">
+					<div class="textDiv" contenteditable="true" tabindex="0" style="width: 482px;"></div>
+					<textarea class="cloneHiddenText hidden" style="width: 482px;"></textarea>
+					<div class="textBtn">
+						<a onclick="saveComment(this);" href="javascript:void(0)" class="submitBtn">저장</a>
+					</div>
+				</div>
+				
+				<div class="editFileBox">
+					<div class="fileTitle">
+						<span class="fileModifyTit">파일첨부</span>
+						<div class="fileModifyInfo">
+							<span>파일 갯수</span>
+							<span name="fileCnt" class="fwb text_blue">0</span>개
+						</div>
+						<div class="fileUploadBtn">
+							<a href="#n" onclick="$(\'#uploadFile\').click();" class="">파일찾기</a>
+						</div>
+					</div>
+					<ul name="fileGroup" class="fileGroup"></ul>
+				</div>							
+				
+				<div class="editCloseBtn">
+		    		<ul>
+		    			<li><a onclick="editorRemove(this);" href="javascript:void(0)" class="ico_clo" title="닫기"></a></li>
+		    		</ul>
+		    	</div>
+			</div>
+		</div>
+		
+		<!-- 댓글 첨부 -->
+		<span name="chatEtc" class="chatEtc" style="width: 465px;">
+			<ul class="file_group">
+				<li name="file_img">
+	        		<a href="javascript:void(0)" class="file_img">
+	        			<img src="" class="">
+        			</a>
+       			</li>
+	        	<li name="fl">
+	        		<div class="fl">
+	        			<img src="" alt="" class="fl">
+	        			<a onclick="fileDownload(this, \'def\');" href="#n" class="file_txt fl ellipsis" title="" style="width: 340px;"></a>
+	        		</div>
+	        		<div class="fr clear">
+						
+	        			<a name="file_save" onclick="fileDownload(this, \'direct\');" href="javascript:void(0)" class="fl text_blue f11">PC저장</a>
+	        			<span class="span_line">|</span>
+	        			<a name="file_viewer" onclick="fileDownload(this, \'viewer\');" href="javascript:void(0)" class="fl text_blue f11">뷰어열기</a>						
+						
+						
+																		
+	        		</div>
+	        	</li>
+	        </ul>
+		</span>
+		
+		<!-- 에디터 첨부 -->
+        <li name="editorFile">
+        	<img name="icon" src="" class="fl">
+	        <a href="#n" class="fileTxt ellipsis" title="" style="max-width: 585px;"><span></span></a>
+	        <a href="#n" title="삭제" class="del_file">
+	        	<img src="/gw/Images/mention/close_btn01.png" alt="" onclick="delFile(this);">
+	       	</a>
+        </li>
+		
+		<!-- 멘션 -->
+		<input type="button" name="mentionSpan" class="mentionSpan" contenteditable="true" compseq="" deptseq="" empseq="" value="">
+	</div>
+	
+		
+	
+	
+<form id="docViewrPopForm" name="docViewrPopForm" method="post">
+    <input type="hidden" name="groupSeq" value="">
+    <input type="hidden" name="fileId" value="">
+    <input type="hidden" name="fileSn" value="">
+    <input type="hidden" name="moduleTp" value="">
+    <input type="hidden" name="pathSeq" value="">
+    <input type="hidden" name="inlineView" value="Y">
+</form>
+	
+</div>
+			<!-- 양식 바인딩 박스 -->
+			<form id="" class="">
+				<div id="divFormBind" class="div_form_bind"><title></title>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<colgroup>
+	<col width="*">
+	<col width="167">
+	</colgroup>
+	<tbody>
+		<tr height="30">
+			<td style="border-bottom:1px solid #000;font-size:9pt;" align="center">
+				<p><br></p>
+			</td>
+			<td style="border-bottom:1px solid #000;font-size:9pt;" align="center">
+				<p><br></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<h1 style="font-family:굴림;">기안서</h1>
+<table class="area_sign" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<td>
+				<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+					<colgroup>
+					<col width="87">
+					<col width="*">
+					<col width="368">
+					</colgroup>
+					<tbody>
+						<tr style="height: 55px;">
+							<td style="font-family:굴림;" class="bd_color">
+								<p>품 의 번 호</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color textL pl5">인사팀-23-00521</td>
+							<td style="font-family:굴림;height:220px;" class="df05" rowspan="4"> 				<!-- 분리-통합 결재라인 -->				<table width="368" height="220" border="0" cellspacing="0" cellpadding="0" class="df05_sign combine">															    					    					    <!-- 결재표시 텍스트이고 세로 표기방식일 때  -->					    					    					    					    													<tbody><tr class="org_txt">																 <!-- 병렬 세로일때 컬럼 병합을 위해.. -->								<td width="40" rowspan="3">결재</td> <!-- 결재속성명 -->																																	 <!-- 2차 상신 컬럼 배경 주기 -->									 <!-- 2차 상신 컬럼 보더 주기 -->									<td width="65" class="" style="">상무</td>																																																	<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																	 <!-- 2차 상신 컬럼 배경 주기 -->									 <!-- 2차 상신 컬럼 보더 주기 -->									<td width="65" class="" style="">대표이사</td>																																							</tr>														<tr class="sign appline_sign" style="height: 56.5px;">																								 <!-- 2차 상신 컬럼 보더 주기 -->								<td style="">																	<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'668\',\'528\')" style="">																										<span class="sign_num">1</span>																																																																																					<!-- 기본 --><div class="sign_textbg"><img src="/eap/Images/common/EA_confirm_bg.gif" width="46px" height="46px"><div class="sign_text">김영두</div></div> 																																																														</a>																</td>																																																	<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																 <!-- 2차 상신 컬럼 보더 주기 -->								<td style="">																	<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'6\',\'2\')" style="">																										<span class="sign_num">4</span>																																																																																					<!-- 기본 --><div class="sign_textbg"><img src="/eap/Images/common/EA_confirm_bg.gif" width="46px" height="46px"><div class="sign_text">임종현</div></div> 																																																														</a>																</td>																																							</tr>														<tr class="sign_name">																								 <!-- 2차 상신 컬럼 보더 주기 -->																												<td style="">																					<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'668\',\'528\')">																						<!-- 결재일 10자되면 한글자가 아래로 개행되는 문제로 자간 -1을 주기 위해 -->																								<span class="day">2023-04-04</span><br>김영두																					</a>																				</td>																																																										<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																 <!-- 2차 상신 컬럼 보더 주기 -->																												<td style="">																					<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'6\',\'2\')">																						<!-- 결재일 10자되면 한글자가 아래로 개행되는 문제로 자간 -1을 주기 위해 -->																								<span class="day">2023-04-05</span><br>임종현																					</a>																				</td>																																								</tr>																					    					    					    <!-- 결재표시 텍스트이고 세로 표기방식일 때  -->					    					    					    					    													<tr class="org_txt">																 <!-- 병렬 세로일때 컬럼 병합을 위해.. -->								<td width="40" rowspan="3">합의</td> <!-- 결재속성명 -->																																	 <!-- 2차 상신 컬럼 배경 주기 -->									 <!-- 2차 상신 컬럼 보더 주기 -->									<td width="65" class="" style="">상무</td>																																																	<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																	 <!-- 2차 상신 컬럼 배경 주기 -->									 <!-- 2차 상신 컬럼 보더 주기 -->									<td width="65" class="" style="">부사장</td>																																							</tr>														<tr class="sign appline_sign" style="height: 56.5px;">																								 <!-- 2차 상신 컬럼 보더 주기 -->								<td style="">																	<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'387\',\'552\')" style="">																										<span class="sign_num">2</span>																																																																																					<!-- 기본 --><div class="sign_textbg"><img src="/eap/Images/common/EA_confirm_bg.gif" width="46px" height="46px"><div class="sign_text">김도윤</div></div> 																																																														</a>																</td>																																																	<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																 <!-- 2차 상신 컬럼 보더 주기 -->								<td style="">																	<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'11\',\'129\')" style="">																										<span class="sign_num">3</span>																																																																																					<!-- 기본 --><div class="sign_textbg"><img src="/eap/Images/common/EA_confirm_bg.gif" width="46px" height="46px"><div class="sign_text">추연웅</div></div> 																																																														</a>																</td>																																							</tr>														<tr class="sign_name">																								 <!-- 2차 상신 컬럼 보더 주기 -->																												<td style="">																					<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'387\',\'552\')">																						<!-- 결재일 10자되면 한글자가 아래로 개행되는 문제로 자간 -1을 주기 위해 -->																								<span class="day">2023-04-04</span><br>김도윤																					</a>																				</td>																																																										<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																									<td width="65">&nbsp;</td>																																 <!-- 2차 상신 컬럼 보더 주기 -->																												<td style="">																					<a href="#n" onclick="openEmpProfileInfoPop(\'1\',\'11\',\'129\')">																						<!-- 결재일 10자되면 한글자가 아래로 개행되는 문제로 자간 -1을 주기 위해 -->																								<span class="day">2023-04-04</span><br>추연웅																					</a>																				</td>																																								</tr>															</tbody></table>			 <script type="text/javascript">				var df05_hei_arr = document.getElementsByClassName(\'df05\');		var df05_hei = 220;		if (df05_hei_arr != null && df05_hei_arr.length > 0) {			df05_hei = df05_hei_arr[0].offsetHeight;		}				var sign_name_hei_arr = document.getElementsByClassName(\'sign_name\');		var sign_name_hei = 0;		if (sign_name_hei_arr != null && sign_name_hei_arr.length > 0) {			sign_name_hei = sign_name_hei_arr[0].offsetHeight;		}				var org_txt_hei_arr = document.getElementsByClassName(\'org_txt\');		var org_txt_hei = 0;		if (org_txt_hei_arr != null && org_txt_hei_arr.length > 0) {			org_txt_hei = org_txt_hei_arr[0].offsetHeight;		}				var org_txt_size = document.getElementsByClassName(\'org_txt\').length;		var sign_name_size = document.getElementsByClassName(\'sign_name\').length;		var sign_size = document.getElementsByClassName(\'appline_sign\').length;		var signH = (df05_hei - (sign_name_hei*sign_name_size) - (org_txt_hei * org_txt_size)) / sign_size ;		if (signH < 46) {			signH = 46;		}		 		var signArr = document.getElementsByClassName(\'appline_sign\');				for(var i = 0; i< signArr.length; i++) {						signArr.item(i).style.height = signH+"px";					}</script></td>
+						</tr>
+						<tr style="height: 55px;">
+							<td style="font-family:굴림;" class="bd_color">
+								<p>작 성 일 자</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color textL pl5">2023-04-04 11:51</td>
+						</tr>
+						<tr style="height: 55px;">
+							<td style="font-family:굴림;" class="bd_color">
+								<p>기 안 부 서</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color textL pl5">인사팀</td>
+						</tr>
+						<tr style="height: 55px;">
+							<td style="font-family:굴림;" class="bd_color">
+								<p>기&nbsp;&nbsp;&nbsp;안&nbsp;&nbsp;&nbsp;자</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color textL pl5"><a class="text_black" href="#n" onclick="openEmpProfileInfoPop(\'1\',\'406\',\'567\')">오명석</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+					<colgroup>
+					<col width="87">
+					<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td style="font-family:굴림;" class="bd_color">
+								<p>수신및참조</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color01 pl5 textL"><div style="float:left; line-height:22px; margin:2px 5px 0 0px;">상무 김진규,팀장 김은우,팀장 박혜준</div><div class="pop_tb_btn" style="margin-top:0px" id="btnRefer"><a href="javascript:fnAppReceivePop(10);">수정</a></div></td>
+						</tr>
+						<tr>
+							<td style="font-family:굴림;" class="bd_color">
+								<p>시&nbsp;&nbsp; 행&nbsp;&nbsp; 자</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color01 pl5 textL"><div style="float:left; line-height:22px; margin:2px 5px 0 0px;"></div></td>
+						</tr>
+						<tr>
+							<td style="font-family:굴림;" class="bd_color">
+								<p>시 행 일 자</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color01 pl5 textL"></td>
+						</tr>
+						<tr>
+							<td style="font-family:굴림;" class="bd_color">
+								<p>제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color01 pl5 textL">[채용]신규인력 채용의 건(SW 1팀 이상현 외 1명)</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="font-family:굴림;" id="divFormContents" class="tdEditor"><p style="font-size:9pt;text-align:center;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';">다음과 같이 신규인력을 채용하고자 하오니 검토 후 승인 바랍니다.</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">\u200b</span></p>
+<p style="font-size:9pt;text-align:center;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">-&nbsp;&nbsp; 다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 음&nbsp;&nbsp; -</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">\u200b</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><strong><span style="font-family:\'맑은 고딕\';font-size:10pt;">1. 채용상세</span></strong></p>
+<table border="0" cellspacing="0" cellpadding="0" style="font-size:12px;table-layout:fixed;color:rgb(0, 0, 0);font-family:굴림;width:579px;overflow-wrap:break-word;word-break:normal;">
+	<colgroup>
+	<col style="width:113px;">
+	<col style="width:122px;">
+	<col style="width:116px;">
+	<col style="width:113px;">
+	<col style="width:114px;">
+	</colgroup>
+	<tbody>
+		<tr style="border-collapse:collapse;border-spacing:0px;height:30px;">
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border:1px solid rgb(0, 0, 0);height:28px;text-align:center;background-color:rgb(217, 217, 217);width:111px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';"><b style="font-size:10pt;">성명</b></span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:1px 1px 1px 0px;border-style:solid solid solid none;border-color:rgb(0, 0, 0);text-align:center;background-color:rgb(217, 217, 217);width:121px;height:28px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';"><b style="font-size:10pt;">소속</b></span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:1px 1px 1px 0px;border-style:solid solid solid none;border-color:rgb(0, 0, 0);text-align:center;background-color:rgb(217, 217, 217);width:115px;height:28px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';"><b style="font-size:10pt;">직급</b></span></p>
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;"><b style="font-size:10pt;"><span style="font-size:10pt;">(직책)</span></b><br></span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:1px 1px 1px 0px;border-style:solid solid solid none;border-color:rgb(0, 0, 0);text-align:center;background-color:rgb(217, 217, 217);width:112px;height:28px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';"><b style="font-size:10pt;">연봉</b></span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:1px 1px 1px 0px;border-style:solid solid solid none;border-color:rgb(0, 0, 0);text-align:center;background-color:rgb(217, 217, 217);width:113px;height:28px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';"><b style="font-size:10pt;">입사예정일</b></span></p>
+			</td>
+		</tr>
+		<tr style="border-collapse:collapse;border-spacing:0px;height:42px;">
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px;border-style:none solid solid;border-color:rgb(0, 0, 0);height:41px;text-align:center;width:111px;">
+				<p style="line-height:1.2;font-family:\'맑은 고딕\';font-size:10pt;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;">이상현</p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:121px;height:41px;">
+				<p style="line-height:1.2;font-family:\'맑은 고딕\';font-size:10pt;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;">SW 1팀</p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:115px;height:41px;">
+				<p style="line-height:1.2;font-size:9pt;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:13.3333px;">B3(선임) 6년차</span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:112px;height:41px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';">5,700만원<br></span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:113px;height:41px;">
+				<p style="padding-right:2px;font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';">2023. 05. 02(화)</span></p>
+			</td>
+		</tr>
+		<tr style="border-collapse:collapse;border-spacing:0px;height:42px;">
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px;border-style:none solid solid;border-color:rgb(0, 0, 0);height:41px;text-align:center;width:111px;">
+				<p style="line-height:1.2;font-family:\'맑은 고딕\';font-size:10pt;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;">신승욱</p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:121px;height:41px;">
+				<p style="line-height:1.2;font-family:\'맑은 고딕\';font-size:10pt;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;">SW 1팀</p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:115px;height:41px;">
+				<p style="line-height:1.2;font-size:9pt;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:13.3333px;">B4(사원) 9년차</span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:112px;height:41px;">
+				<p style="line-height:1.2;font-size:9pt;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">3,970만원</span></p>
+			</td>
+			<td align="center" style="border-collapse:collapse;border-spacing:0px;border-width:0px 1px 1px 0px;border-style:none solid solid none;border-color:rgb(0, 0, 0);text-align:center;width:113px;height:41px;">
+				<p style="line-height:1.2;font-size:9pt;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">2023. 04. 10(월)</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><strong><br></strong></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">\u200b</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><strong><span style="font-family:\'맑은 고딕\';font-size:10pt;">2. 기타사항</span></strong></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;"><b><span style="font-size:10pt;">&nbsp; &nbsp;</span></b>1) 이상현 프로</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp; - 학력: 4년제 대졸</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp;&nbsp;- 총 경력 : 9년 2개월</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp; - 연봉 : 기존연봉 감안 책정</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';">&nbsp; &nbsp; - 수습기간 3개월 적용(급여 100% 지급)</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><br></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><br></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp;2) 신승욱님</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp; - 학력: 4년제 대졸</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp; -&nbsp;총 경력 : 2년</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp;&nbsp;&nbsp; - 연봉 : 회사 내규 적용</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-size:10pt;font-family:\'맑은 고딕\';">&nbsp; &nbsp; - 수습기간 3개월 적용(급여 100% 지급)</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><br></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><br></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&lt;첨부&gt;&nbsp;채용자 입사지원서 각 1부.</span></p>
+<p style="font-size:9pt;line-height:1.2;font-family:돋움;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;"><span style="font-family:\'맑은 고딕\';font-size:10pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;채용자 면접평가표 각 1부. 끝.</span></p>
+<p style="font-family:돋움;font-size:9pt;color:rgb(0, 0, 0);margin-top:0px;margin-bottom:0px;line-height:1.2;"><br></p>
+</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+					<colgroup>
+					<col width="87">
+					<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td style="font-family:굴림;" class="bd_color02 textC">
+								<p>참 조 문 서</p>
+							</td>
+							<td style="font-family:굴림;" class="bd_color02 textL" valign="middle"><div><table width="100%" style="table-layout:fixed;" id="divRefArea"><tbody><tr><td class="ellipsis pb5 lh18"><div class="pop_tb_btn"><span class="pr5">선택된 문서가 없습니다.</span></div></td></tr></tbody></table></div></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;">
+	<colgroup>
+	<col width="">
+	<col width="209">
+	<col width="">
+	</colgroup>
+	<tbody>
+		<tr height="10">
+			<td style="border:0px solid #000;padding-left:3px;" align="left" colspan="3">
+				<p>TEL: 82-31-441-4001   FAX: 82-31-477-4020</p>
+			</td>
+		</tr>
+		<tr height="10">
+			<td style="border:0px solid #000;padding-left:3px;" align="left" colspan="3">
+				<p>A-PRO Technopia B/D 60, LS-ro 115beon-gil, Gunpo-si Gyeonggi-do, Republic of Korea</p>
+			</td>
+		</tr>
+		<tr height="30">
+			<td style="border-bottom:1px solid #000;padding-bottom:;padding-left:3px;" align="left" valign="bottom">
+				<p>www.aproele.com</p>
+			</td>
+			<td style="border-bottom:1px solid #000;font-size:9pt;" align="center">
+				<p><br></p>
+			</td>
+			<td style="border-bottom:1px solid #000;" align="center">
+				<p><br></p>
+			</td>
+		</tr>
+		<tr height="10">
+			<td style="border:0px solid #000;padding-left:3px;" align="left">
+				<p>A4(210ⅹ297)</p>
+			</td>
+			<td style="border:0px solid #000;" align="center">
+				<p><br></p>
+			</td>
+			<td style="border:0px solid #000;" align="center">
+				<p><br></p>
+			</td>
+		</tr>
+	</tbody>
+</table></div>
+			</form>
+
+			<!-- 첨부파일 -->
+			<iframe id="uploaderView" src="/gw/ajaxFileUploadProcView.do?uploadMode=D&amp;pathSeq=100" style="width: 100%; height: 185px; margin-top: 20px !important;" scrolling="no"></iframe>
+
+			<!-- 통합 미리보기  -->
+			<div id="divPreview" style="margin-top: 10px;"><iframe src="/eap/js/pdfjs-2.0.943-dist/web/viewer.html?file=https://mail.aproele.com/gw/cmm/file/fileDownloadProc.do?fileId--151a0e43d29411ed972a98f2b38dce9f---moduleTp--gw---pathSeq--100---inlineView--Y" style="width:100%; height:830px; margin-bottom:10px;border:1px solid"></iframe><iframe src="/eap/js/pdfjs-2.0.943-dist/web/viewer.html?file=https://mail.aproele.com/gw/cmm/file/fileDownloadProc.do?fileId--151f0f8fd29411ed972a98f2b38dce9f---moduleTp--gw---pathSeq--100---inlineView--Y" style="width:100%; height:830px; margin-bottom:10px;border:1px solid"></iframe><iframe src="/eap/js/pdfjs-2.0.943-dist/web/viewer.html?file=https://mail.aproele.com/gw/cmm/file/fileDownloadProc.do?fileId--15229349d29411ed972a98f2b38dce9f---moduleTp--gw---pathSeq--100---inlineView--Y" style="width:100%; height:830px; margin-bottom:10px;border:1px solid"></iframe><iframe src="/eap/js/pdfjs-2.0.943-dist/web/viewer.html?file=https://mail.aproele.com/gw/cmm/file/fileDownloadProc.do?fileId--1523db85d29411ed972a98f2b38dce9f---moduleTp--gw---pathSeq--100---inlineView--Y" style="width:100%; height:830px; margin-bottom:10px;border:1px solid"></iframe></div>
+			<!-- 			
+			<div id="divPreviewPDF"></div>
+			<div id="divPreviewImg"></div>
+ -->
+			<!-- 결재 특이사항 하단-->
+			<div id="commentBottom" class="ea_reply_box mb20 mt20" style="display: none;"></div>
+
+			<!-- 기타기능 -->
+			<div id="divDocAddInfo" class="div_display mb20">
+				<!-- 옵션 -->
+				<div class="com_ta borderR">
+					<table id="docAddInfo">
+						<colgroup>
+							<col width="">
+							<col width="">
+							<col width="">
+							<col width="">
+							<col width="">
+							<col width="">
+						</colgroup>
+
+						<tbody><tr id="eaDocOpBox1"><th width="16.6%">보안등급</th><td colspan="5" width="83.4%">1등급</td></tr>
+						<tr id="eaDocBox">
+							<th width="16.6%">문서함</th>
+							<td width="83.4" colspan="5" id="txtDocBoxList" name="txtDocBoxList" value="">선택없음</td>
+						</tr>
+
+					</tbody></table>
+				</div>
+			</div>
+		</div>
+		<!-- 양식코드 종료 --------------------------------------------------------------------------------------------------->
+		<div id="editor"></div>
+	</div>
+
+	<!-- Dialog Content 영역 -->
+	<div id="modifyReason" style="display: none;">
+		<textarea id="inputModReason" style="padding: 10px; width: 346px; height: 78px;"></textarea>
+	</div>
+</div>
+
+
+
+<script type="text/javascript" src="/eap/js/pdfjs-2.0.943-dist/build/pdf.js?version=2023041011 "></script>
+
+
+<div class="k-list-container k-popup k-group k-reset" id="eaSignSel-list" data-role="popup" style="position: absolute; height: auto; display: none;"><div class="k-group-header" style="display:none"></div><ul unselectable="on" class="k-list k-reset" tabindex="-1" aria-hidden="true" id="eaSignSel_listbox" aria-live="off" data-role="staticlist" role="listbox" style="overflow: auto; height: auto;"><li tabindex="-1" role="option" unselectable="on" class="k-item" data-index="0">결재문서</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-index="1">수신참조리스트</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-index="2">시행자리스트</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-index="3">인쇄이력</li><li tabindex="-1" role="option" unselectable="on" class="k-item" data-index="4">기안작성</li></ul></div></body></html>'

@@ -13,7 +13,12 @@ import time
 ID = "mskang"
 PW = "aproele0320!@"
 MENU_ID = '2002090000'      # 전자결재 > 결재문서 > 수신참조함
-PDF_TYPE = '6'              # 1: 본문, 2: 결재문서, 4: 결재문서+첨부파일, 6: 결재문서+추가항목
+
+# 문서에 따라, 2, 3, 4, 5, 7 를 선택적으로 해야 함.
+# 1: 본문, 2: 결재문서, 3:결재문서 + 결재의견, 4: 결재문서 + 첨부파일,
+# 5: 결재문서 + 결재의견 + 첨부파일리스트, 6: 결재문서 + 추가항목
+# 7: 결재문서 + 결재의견 + 첨부파일리스트 + 추가항목
+PDF_TYPE = '5'
 PAGE_SIZE = '1000'          # 한 번에 조회 할 데이터 수
 READ_TYPE = ''              # 열람구분 ('': 전체, 10: 열람, 20: 미열람)
 
@@ -79,7 +84,6 @@ def downloadPdf():
 
     index = 1
     for list in lists:
-
         print("{}. {}".format(index, list['DOC_TITLE']))
         driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=-1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
         time.sleep(5)

@@ -2,10 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
+import os
 import requests
 import datetime
 import json
 import time
+import shutil
 
 ################################################################################
 # 설정
@@ -26,7 +28,10 @@ MENU_ID = '2002090000'      # 전자결재 > 결재문서 > 수신참조함
 
 PAGE_SIZE = '1000'          # 한 번에 조회 할 데이터 수
 READ_TYPE = ''              # 열람구분 ('': 전체, 10: 열람, 20: 미열람)
-DOWNLOAD_PATH = '/Users/dbclose/Download'   # 파일 다운로드 경로
+
+DOWNLOAD_PATH = '/Users/dbclose/Download/temp'      # 파일 다운로드 경로 - 임시 저장 용  (임시 저장 후 SAVE_PATH의 서브 경로로 파일이 이동됨)
+SAVE_PATH = '/Users/dbclose/Download/menu'          # 최종 파일 저장 경로 (이 경로에 서브 디렉토리가 생성됨 - [문서 등록날짜_문서번호], 예시) /20230426_16435/ )
+
 
 
 option = Options()
@@ -39,6 +44,36 @@ option.add_experimental_option('prefs', {
 DRIVER_PATH = '{/opt/homebrew/bin/chromedriver}'
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 driver = webdriver.Chrome(DRIVER_PATH, options=option)
+
+
+def createFolder(directory):
+    try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+    except OSError:
+        print ('Error: Creating directory. ' +  directory)
+
+def moveFiles(source, target):
+    try:
+        files = os.listdir(source)
+
+        downloging_files = 0
+        for file in files:
+            if (file.find('crdownload') > -1):
+                downloging_files = downloging_files + 1
+
+        if (downloging_files > 0):
+            time.sleep(1)
+            moveFiles(source, target)
+
+        #print("source:", source)
+        for file in files:
+            #print('- file: ', source + file)
+            shutil.move(source + '/' + file, target)
+
+    except OSError:
+        time.sleep(1)
+        moveFiles(source, target)
 
 # 로그인
 def login():
@@ -94,7 +129,7 @@ def downloadPdf():
     resData = json.loads(response.content)
     lists = resData['list']
 
-    # print("list", lists)
+    #print("list", lists)
     print("  ----- download --------")
 
     index = 1
@@ -128,11 +163,24 @@ def downloadPdf():
             for item in items:
                 print('  - file:', item.find_element(By.NAME, 'fileNm').text)
                 item.click()
-                time.sleep(1)
-
 
             time.sleep(3)
+
+
+        # 파일 이동
+        save_path = SAVE_PATH + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
+        createFolder(save_path)
+        moveFiles(DOWNLOAD_PATH, save_path)
+
+
         index = index + 1
+
+
+# 저장 경로 생성.
+shutil.rmtree(DOWNLOAD_PATH)
+shutil.rmtree(SAVE_PATH)
+createFolder(DOWNLOAD_PATH)
+createFolder(SAVE_PATH)
 
 
 print("# 1. Login  ---------------------------------------------")

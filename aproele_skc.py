@@ -23,6 +23,7 @@ PAGE_SIZE = '1000'          # 한 번에 조회 할 데이터 수
 READ_TYPE = ''              # 열람구분 ('': 전체, 10: 열람, 20: 미열람)
 
 DRIVER_PATH = '{/opt/homebrew/bin/chromedriver}'
+#DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 driver = webdriver.Chrome(DRIVER_PATH)
 
 # 로그인

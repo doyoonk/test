@@ -54,7 +54,7 @@ def moveFiles(source, target):
                 downloging_files = downloging_files + 1
 
         if (downloging_files > 0):
-            time.sleep(1)
+            time.sleep(0.5)
             moveFiles(source, target)
 
         #print("source:", source)
@@ -63,7 +63,7 @@ def moveFiles(source, target):
             shutil.move(source + '/' + file, target)
 
     except OSError:
-        time.sleep(1)
+        time.sleep(0.5)
         moveFiles(source, target)
 
 # 로그인
@@ -136,7 +136,7 @@ def downloadPdf():
         index = 1
         for list in lists:
 
-            print("{}. {}".format(index, list['DOC_TITLE']))
+            print("{}-{}. {}".format(page, index, list['DOC_TITLE']))
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
@@ -145,7 +145,7 @@ def downloadPdf():
 
             # pdf 다운로드
             driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-            time.sleep(1)
+            #time.sleep(0.5)
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:
@@ -166,15 +166,16 @@ def downloadPdf():
                         print('  - file:', item.find_element(By.NAME, 'fileNm').text)
                         item.click()
                     except OSError:
+                        print('error: item.click()')
                         time.sleep(1)
                         item.click()
 
-                time.sleep(1)
+                time.sleep(0.5)
 
 
             # 파일 이동
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            print('save_page: ', save_path)
+            #print('save_page: ', save_path)
             createFolder(save_path)
             moveFiles(DOWNLOAD_PATH, save_path)
 

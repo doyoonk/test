@@ -17,7 +17,7 @@ PW = "aproele0320!@"
 
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
 
-START_PAGE = 97              # 데이터를 다운
+START_PAGE = 1              # 데이터를 다운
 PAGE_SIZE = 50               # 한 번에 조회 할 데이터 수
 
 DOWNLOAD_PATH = '/Users/dbclose/Download/temp'      # 파일 다운로드 경로 - 임시 저장 용  (임시 저장 후 SAVE_PATH의 서브 경로로 파일이 이동됨)
@@ -115,9 +115,10 @@ def downloadPdf():
 
     while has_next:
         data['page'] = page
-        print('current_page:', data['page']);
+
         response = requests.post("https://mail.aproele.com/eap/admin/eadoc/GetEADocMngList.do", headers=headers, data=data)
 
+        #print('current_page:', data['page'])
         # print("resonsee", response)
         # print("Status Code", response.status_code)
         # print("JSON Response ", response.json())
@@ -127,7 +128,7 @@ def downloadPdf():
         startCount = resData['startCount']
         totalCount = resData['totalCount']
 
-        print("startCount: {}, totalCount: {}".format(startCount, totalCount))
+        #print("startCount: {}, totalCount: {}".format(startCount, totalCount))
 
         #print("list", lists)
         print("----- download: " + str(page) + ' page... ------------')
@@ -199,11 +200,11 @@ print('# 문서 파일 다운로드: 마스터 > 전자결재관리 > 결제문�
 print('# ')
 print('################################################################################')
 print('')
+
 print("# 1. Login  ---------------------------------------------")
 login()
 
 print("# 2. Download PDF  --------------------------------------")
-
 downloadPdf()
 
 print("# 3. End ------------------------------------------------")

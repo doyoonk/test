@@ -145,7 +145,7 @@ def downloadPdf():
 
             # pdf 다운로드
             driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-            #time.sleep(0.5)
+            time.sleep(1)
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:

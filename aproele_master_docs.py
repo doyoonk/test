@@ -202,7 +202,7 @@ def downloadPdf():
 
 # 저장 경로 생성.
 shutil.rmtree(DOWNLOAD_PATH)
-shutil.rmtree(SAVE_PATH)
+#shutil.rmtree(SAVE_PATH)
 createFolder(DOWNLOAD_PATH)
 createFolder(SAVE_PATH)
 

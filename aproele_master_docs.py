@@ -1,8 +1,13 @@
+#!/Users/dykim/src/python/test/venv/bin/python
+# -*- coding: utf-8 -*-
+
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 import os
+import sys
 import requests
 import datetime
 import json
@@ -12,18 +17,26 @@ import shutil
 ################################################################################
 # 설정
 ################################################################################
+WHO = "dykim" # "dbclose"
 ID = "mskang"
 PW = "aproele0320!@"
 
+# DOWNLOAD_PATH: 파일 다운로드 경로 - 임시 저장 용  (임시 저장 후 SAVE_PATH의 서브 경로로 파일이 이동됨)
+# SAVE_PATH: 최종 파일 저장 경로 (이 경로에 서브 디렉토리가 생성됨 - [문서 등록날짜_문서번호], 예시) /20230426_16435/ )
+if WHO == "dbclose":
+    DOWNLOAD_PATH = '/Users/dbclose/Download/temp'
+    SAVE_PATH = '/Users/dbclose/Download/menu'
+    DRIVER_PATH = '{/opt/homebrew/bin/chromedriver}'
+else
+    DOWNLOAD_PATH = '/Users/dykim/Downloads/temp'
+    SAVE_PATH = '/Users/dykim/Downloads/docs'
+    DRIVER_PATH = '{/opt/local/bin/chromedriver}'
+#DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-
-START_PAGE = 1              # 데이터를 다운
+START_PAGE = 33              # 데이터를 다운
+START_INDEX = 27
+# 2023/05/26 13:33 33-26
 PAGE_SIZE = 50               # 한 번에 조회 할 데이터 수
-
-DOWNLOAD_PATH = '/Users/dbclose/Download/temp'      # 파일 다운로드 경로 - 임시 저장 용  (임시 저장 후 SAVE_PATH의 서브 경로로 파일이 이동됨)
-SAVE_PATH = '/Users/dbclose/Download/menu'          # 최종 파일 저장 경로 (이 경로에 서브 디렉토리가 생성됨 - [문서 등록날짜_문서번호], 예시) /20230426_16435/ )
-
-
 
 option = Options()
 option.add_experimental_option('prefs', {
@@ -31,11 +44,7 @@ option.add_experimental_option('prefs', {
     'download.prompt_for_download': False,
 })
 
-
-DRIVER_PATH = '{/opt/homebrew/bin/chromedriver}'
-#DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 driver = webdriver.Chrome(DRIVER_PATH, options=option)
-
 
 def createFolder(directory):
     try:
@@ -60,6 +69,8 @@ def moveFiles(source, target):
         #print("source:", source)
         for file in files:
             #print('- file: ', source + file)
+            #if os.path.exists(target + '/' + file):
+            #    os.remove(target + '/' + file)
             shutil.move(source + '/' + file, target)
 
     except OSError:
@@ -85,8 +96,6 @@ def login():
     # 마스터 페이지로 이동
     driver.execute_script("changeMode('MASTER')")
 
-
-
 def downloadPdf():
     # driver.get('https://mail.aproele.com/eap/admin/eadoc/EADocMngList.do?menu_no=' + MENU_ID)
     # driver.implicitly_wait(10)
@@ -107,7 +116,7 @@ def downloadPdf():
     data = {
         'pageSize': PAGE_SIZE,
         'p_fr_dt': '2015-01-01',
-        'p_to_dt': datetime.datetime.now().strftime('%Y-%m-%d')
+        'p_to_dt': '2023-04-30' # datetime.datetime.now().strftime('%Y-%m-%d')
     }
 
     has_next = True
@@ -135,8 +144,13 @@ def downloadPdf():
 
         index = 1
         for list in lists:
+            if page < START_PAGE or index < START_INDEX:
+                continue
 
+            save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
             print("{}-{}. {}".format(page, index, list['DOC_TITLE']))
+            print("{}-{}. {}".format(page, index, list['DOC_TITLE']), file=sys.stderr)
+            print('save_page: ', save_path)
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
@@ -145,7 +159,7 @@ def downloadPdf():
 
             # pdf 다운로드
             driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-            #time.sleep(0.5)
+            time.sleep(1)
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:
@@ -174,14 +188,11 @@ def downloadPdf():
 
 
             # 파일 이동
-            save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            #print('save_page: ', save_path)
+            print('save_page: ', save_path, flush=True)
             createFolder(save_path)
             moveFiles(DOWNLOAD_PATH, save_path)
 
-
             index = index + 1
-
 
         if (startCount < PAGE_SIZE):
             has_next = False

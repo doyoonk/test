@@ -27,7 +27,7 @@ if WHO == "dbclose":
     DOWNLOAD_PATH = '/Users/dbclose/Download/temp'
     SAVE_PATH = '/Users/dbclose/Download/menu'
     DRIVER_PATH = '{/opt/homebrew/bin/chromedriver}'
-else
+else:
     DOWNLOAD_PATH = '/Users/dykim/Downloads/temp'
     SAVE_PATH = '/Users/dykim/Downloads/docs'
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'

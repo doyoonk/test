@@ -144,7 +144,7 @@ def downloadPdf():
 
         index = 1
         for list in lists:
-            if page < START_PAGE or index < START_INDEX:
+            if page <= START_PAGE and index < START_INDEX:
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])

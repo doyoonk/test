@@ -17,7 +17,7 @@ import shutil
 ################################################################################
 # 설정
 ################################################################################
-WHO = "dykim" # "dbclose"
+WHO = "dykim" # "dbclose or dykim"
 ID = "mskang"
 PW = "aproele0320!@"
 
@@ -182,11 +182,13 @@ def downloadPdf():
                 for item in items:
                     try:
                         print('  - file:', item.find_element(By.NAME, 'fileNm').text)
-                        item.click()
+                        # item.click()
+                        driver.execute_script("arguments[0].click();", item)
                     except OSError:
                         print('error: item.click()')
                         time.sleep(1)
-                        item.click()
+                        #item.click()
+                        driver.execute_script("arguments[0].click();", item)
 
                 time.sleep(0.5)
 

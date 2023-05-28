@@ -33,8 +33,8 @@ else:
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 89              # 데이터를 다운
-START_INDEX = 50
+START_PAGE = 129              # 데이터를 다운
+START_INDEX = 29
 # 2023/05/26 13:33 33-26 --> 34-1
 # 2023/05/26 17:47 83-14 --> 84-1
 # 2023/05/26 19:08 89-49 --> 90-1

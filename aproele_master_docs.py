@@ -33,9 +33,12 @@ else:
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 33              # 데이터를 다운
-START_INDEX = 27
-# 2023/05/26 13:33 33-26
+START_PAGE = 89              # 데이터를 다운
+START_INDEX = 50
+# 2023/05/26 13:33 33-26 --> 34-1
+# 2023/05/26 17:47 83-14 --> 84-1
+# 2023/05/26 19:08 89-49 --> 90-1
+# 2023/05/28 11:59 129-28 --> 
 PAGE_SIZE = 50               # 한 번에 조회 할 데이터 수
 
 option = Options()
@@ -144,7 +147,8 @@ def downloadPdf():
 
         index = 1
         for list in lists:
-            if page <= START_PAGE and index < START_INDEX:
+            if page < START_PAGE or (page == START_PAGE and index < START_INDEX):
+                index = index + 1
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])

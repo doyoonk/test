@@ -33,12 +33,16 @@ else:
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 129              # 데이터를 다운
-START_INDEX = 29
+START_PAGE = 455              # 데이터를 다운
+START_INDEX = 22
 # 2023/05/26 13:33 33-26 --> 34-1
 # 2023/05/26 17:47 83-14 --> 84-1
 # 2023/05/26 19:08 89-49 --> 90-1
-# 2023/05/28 11:59 129-28 --> 
+# 2023/05/28 11:59 129-28 --> 129-29
+# 2023/05/28 17:32 139-36 -->
+# 2023/05/29 11:49 421-48 -->
+# 2023/05/29 13:29 455-21 -->
+
 PAGE_SIZE = 50               # 한 번에 조회 할 데이터 수
 
 option = Options()
@@ -152,9 +156,8 @@ def downloadPdf():
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            print("{}-{}. {}".format(page, index, list['DOC_TITLE']))
-            print("{}-{}. {}".format(page, index, list['DOC_TITLE']), file=sys.stderr)
-            print('save_page: ', save_path)
+            print("{}-{}. {} : {}".format(page, index, save_path, list['DOC_TITLE']))
+            print("{}-{}. {} : {}".format(page, index, save_path, list['DOC_TITLE']), file=sys.stderr)
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
@@ -163,7 +166,7 @@ def downloadPdf():
 
             # pdf 다운로드
             driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-            time.sleep(1)
+            time.sleep(2)
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:
@@ -182,6 +185,7 @@ def downloadPdf():
                 for item in items:
                     try:
                         print('  - file:', item.find_element(By.NAME, 'fileNm').text)
+                        time.sleep(1)
                         # item.click()
                         driver.execute_script("arguments[0].click();", item)
                     except OSError:
@@ -190,8 +194,7 @@ def downloadPdf():
                         #item.click()
                         driver.execute_script("arguments[0].click();", item)
 
-                time.sleep(0.5)
-
+                time.sleep(1)
 
             # 파일 이동
             print('save_page: ', save_path, flush=True)

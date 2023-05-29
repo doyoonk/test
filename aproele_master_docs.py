@@ -33,8 +33,8 @@ else:
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 455              # 데이터를 다운
-START_INDEX = 22
+START_PAGE = 1              # 데이터를 다운
+START_INDEX = 3
 # 2023/05/26 13:33 33-26 --> 34-1
 # 2023/05/26 17:47 83-14 --> 84-1
 # 2023/05/26 19:08 89-49 --> 90-1
@@ -156,8 +156,8 @@ def downloadPdf():
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            print("{}-{}. {} : {}".format(page, index, save_path, list['DOC_TITLE']))
-            print("{}-{}. {} : {}".format(page, index, save_path, list['DOC_TITLE']), file=sys.stderr)
+            print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path))
+            print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path), file=sys.stderr)
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
@@ -186,8 +186,8 @@ def downloadPdf():
                     try:
                         print('  - file:', item.find_element(By.NAME, 'fileNm').text)
                         time.sleep(1)
-                        # item.click()
-                        driver.execute_script("arguments[0].click();", item)
+                        item.click()
+                        #driver.execute_script("arguments[0].click();", item)
                     except OSError:
                         print('error: item.click()')
                         time.sleep(1)
@@ -200,14 +200,12 @@ def downloadPdf():
             print('save_page: ', save_path, flush=True)
             createFolder(save_path)
             moveFiles(DOWNLOAD_PATH, save_path)
-
             index = index + 1
 
         if (startCount < PAGE_SIZE):
             has_next = False
             break
         page = page + 1
-
 
 # 저장 경로 생성.
 shutil.rmtree(DOWNLOAD_PATH)

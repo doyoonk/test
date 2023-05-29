@@ -194,7 +194,7 @@ def downloadPdf():
                         #item.click()
                         driver.execute_script("arguments[0].click();", item)
 
-                time.sleep(1)
+                time.sleep(2)
 
             # 파일 이동
             print('save_page: ', save_path, flush=True)

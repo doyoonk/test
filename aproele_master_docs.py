@@ -13,6 +13,7 @@ import datetime
 import json
 import time
 import shutil
+import traceback
 
 ################################################################################
 # 설정
@@ -49,6 +50,7 @@ option = Options()
 option.add_experimental_option('prefs', {
     'download.default_directory': DOWNLOAD_PATH,
     'download.prompt_for_download': False,
+    'profile.default_content_setting_values.automatic_downloads': 1     # 여러 파일 다운로드 권한 허용.
 })
 
 driver = webdriver.Chrome(DRIVER_PATH, options=option)
@@ -73,14 +75,19 @@ def moveFiles(source, target):
             time.sleep(0.5)
             moveFiles(source, target)
 
+
         #print("source:", source)
         for file in files:
-            #print('- file: ', source + file)
-            #if os.path.exists(target + '/' + file):
-            #    os.remove(target + '/' + file)
+            print('- file: ', source + file)
+            if os.path.isfile(target + '/' + file):
+                os.remove(target + '/' + file)
+
+            # 파일 이동.
             shutil.move(source + '/' + file, target)
 
-    except OSError:
+    except:
+        print('moveFiles error!')
+        traceback.print_exc()
         time.sleep(0.5)
         moveFiles(source, target)
 
@@ -156,7 +163,7 @@ def downloadPdf():
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path))
+            #print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path))
             print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path), file=sys.stderr)
 
             if list['FILE_CNT'] == 0:
@@ -184,12 +191,13 @@ def downloadPdf():
 
                 for item in items:
                     try:
+                        #print(' - item: ', item)
                         print('  - file:', item.find_element(By.NAME, 'fileNm').text)
                         time.sleep(1)
                         item.click()
                         #driver.execute_script("arguments[0].click();", item)
-                    except OSError:
-                        print('error: item.click()')
+                    except:
+                        print('    ㄴ error: item.click() ==> javascript.click()')
                         time.sleep(1)
                         #item.click()
                         driver.execute_script("arguments[0].click();", item)

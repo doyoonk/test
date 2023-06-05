@@ -32,10 +32,12 @@ else:
     DOWNLOAD_PATH = '/Users/dykim/Downloads/temp'
     SAVE_PATH = '/Users/dykim/Downloads/docs'
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
+download_item = 0
+
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 33              # 데이터를 다운
-START_INDEX = 26
+START_PAGE = 1              # 데이터를 다운
+START_INDEX = 1
 # 2023/05/26 13:33 33-26 --> 34-1 33-26
 # 2023/05/26 17:47 83-14 --> 84-1
 # 2023/05/26 19:08 89-49 --> 90-1
@@ -135,7 +137,7 @@ def downloadPdf():
 
     has_next = True
     page = START_PAGE
-
+    count = 0
     while has_next:
         data['page'] = page
 
@@ -157,14 +159,16 @@ def downloadPdf():
         print("----- download: " + str(page) + ' page... ------------')
 
         index = 1
+        item_count = 0
         for list in lists:
             if page < START_PAGE or (page == START_PAGE and index < START_INDEX):
                 index = index + 1
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            #print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path))
-            print("{}-{}.: {}\n{}".format(page, index, list['DOC_TITLE'], save_path), file=sys.stderr)
+            print("{}-{}:{}\n{}".format(page, index, list['DOC_TITLE'], save_path))
+            if (download_item == 1):
+                print("{}-{}:{}\n{}".format(page, index, list['DOC_TITLE'], save_path), file=sys.stderr)
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
@@ -172,8 +176,10 @@ def downloadPdf():
                 PDF_TYPE = '5'
 
             # pdf 다운로드
-            driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-            time.sleep(2)
+            if (download_item == 1):
+                driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
+                time.sleep(2)
+            item_count = item_count + 1
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:
@@ -190,25 +196,31 @@ def downloadPdf():
                 items = file_area.find_elements(By.CSS_SELECTOR, "li.file_name")
 
                 for item in items:
+                    item_count = item_count + 1
                     try:
                         #print(' - item: ', item)
-                        print('  - file:', item.find_element(By.NAME, 'fileNm').text)
-                        time.sleep(1)
-                        item.click()
-                        #driver.execute_script("arguments[0].click();", item)
+                        print(' - file:', item.find_element(By.NAME, 'fileNm').text)
+                        if (download_item == 1):
+                            time.sleep(1)
+                            item.click()
+                            #driver.execute_script("arguments[0].click();", item)
                     except:
-                        print('    ㄴ error: item.click() ==> javascript.click()')
-                        time.sleep(1)
-                        #item.click()
-                        driver.execute_script("arguments[0].click();", item)
+                        print(' ㄴ error: item.click() ==> javascript.click()')
+                        if (download_item == 1):
+                            time.sleep(1)
+                            #item.click()
+                            driver.execute_script("arguments[0].click();", item)
 
-                time.sleep(2)
+                if (download_item == 1):
+                    time.sleep(2)
 
             # 파일 이동
             print('save_page: ', save_path, flush=True)
-            createFolder(save_path)
-            moveFiles(DOWNLOAD_PATH, save_path)
             index = index + 1
+            count = count + item_count
+            if (download_item == 1):
+                createFolder(save_path)
+                moveFiles(DOWNLOAD_PATH, save_path)
 
         if (startCount < PAGE_SIZE):
             has_next = False

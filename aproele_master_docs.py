@@ -57,6 +57,11 @@ option.add_experimental_option('prefs', {
 
 driver = webdriver.Chrome(DRIVER_PATH, options=option)
 
+now = datetime.datetime.now()
+LOG_FILE_PATH = SAVE_PATH + '/' + now.strftime("%Y-%m-%d_%H%M%S") + '.txt'
+with open(LOG_FILE_PATH, 'w') as log:
+    log.write("========= 파일 카운드가 일치하지 않는 데이터 (" + now.strftime("%Y-%m-%d %H:%M:%S") + ") =================\n")
+
 def createFolder(directory):
     try:
         if not os.path.exists(directory):
@@ -80,7 +85,7 @@ def moveFiles(source, target):
 
         #print("source:", source)
         for file in files:
-            print('- file: ', source + file)
+            #print('- file: ', source + '/' +  file)
             if os.path.isfile(target + '/' + file):
                 os.remove(target + '/' + file)
 
@@ -92,6 +97,21 @@ def moveFiles(source, target):
         traceback.print_exc()
         time.sleep(0.5)
         moveFiles(source, target)
+
+
+# 로컬에 저장된 파일이 있는가?
+def existsLocalFile(file_path):
+    if os.path.exists(file_path):
+        file_size = os.path.getsize(file_path)
+        return file_size > 0
+    else:
+        return False
+
+
+# 다시 다운로드 해야 하는가?
+def needReDownload(file_path):
+    return download_item == 0 and not existsLocalFile(file_path)
+
 
 # 로그인
 def login():
@@ -135,6 +155,8 @@ def downloadPdf():
         'p_to_dt': '2023-04-30' # datetime.datetime.now().strftime('%Y-%m-%d')
     }
 
+
+
     has_next = True
     page = START_PAGE
     count = 0
@@ -156,29 +178,49 @@ def downloadPdf():
         #print("startCount: {}, totalCount: {}".format(startCount, totalCount))
 
         #print("list", lists)
-        print("----- download: " + str(page) + ' page... ------------')
-
+        print('')
+        print('------------------------------------------------------')
+        print("----- download: " + str(page) + ' page... ')
+        print('------------------------------------------------------')
         index = 1
-        item_count = 0
+
         for list in lists:
+            item_count = 0
             if page < START_PAGE or (page == START_PAGE and index < START_INDEX):
                 index = index + 1
                 continue
 
             save_path = SAVE_PATH + '/' + list['CREATED_DT'][0:4] + '/' + list['CREATED_DT'][0:7] + '/' + list['CREATED_DT'].replace('-', '') + '_' + str(list['DOC_ID'])
-            print("{}-{}:{}\n{}".format(page, index, list['DOC_TITLE'], save_path))
-            if (download_item == 1):
-                print("{}-{}:{}\n{}".format(page, index, list['DOC_TITLE'], save_path), file=sys.stderr)
+            docFilename = '[' + list['DOC_NO'] + ']' + list['DOC_TITLE'].replace(':', '_').replace('/', '_') + '.pdf'
+            docFilepath = save_path + '/' + docFilename
+
 
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
             else:
                 PDF_TYPE = '5'
 
+
+            docFileMessage = "{}-{}:{}".format(page, index, docFilename, save_path)
+
+            if download_item == 1:
+                print(docFileMessage)
+                print(" - 경로: {} ".format(save_path))
+
+            elif download_item == 0 and existsLocalFile(docFilepath):
+                print(docFileMessage + ' (파일이 존재함)')
+                print(" - 경로: {} ".format(save_path))
+
+            else:
+                print(docFileMessage + ' (파일이 존재하지 않음)', file=sys.stderr)
+                print(" - 경로: {} ".format(save_path), file=sys.stderr)
+
+
             # pdf 다운로드
-            if (download_item == 1):
+            if (download_item == 1 or needReDownload(docFilepath)):
                 driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
                 time.sleep(2)
+
             item_count = item_count + 1
 
             # 첨부파일 다운로드
@@ -197,30 +239,69 @@ def downloadPdf():
 
                 for item in items:
                     item_count = item_count + 1
+
+                    attachFilename = item.find_element(By.NAME, 'fileNm').text
+                    attachFilepath = save_path + '/' + attachFilename
+
                     try:
                         #print(' - item: ', item)
-                        print(' - file:', item.find_element(By.NAME, 'fileNm').text)
-                        if (download_item == 1):
+                        #print('save_path: ' + save_path)
+                        #print('attachFilename: ' + attachFilename)
+
+                        attachFileMessage = ' - 첨부파일: ' + attachFilename
+
+                        if download_item == 1:
+                            print(attachFileMessage)
+                        elif download_item == 0 and existsLocalFile(attachFilepath):
+                            print(attachFileMessage + ' (파일 존재함)')
+                        else:
+                            print(attachFileMessage + ' (파일 존재하지 않음)', file=sys.stderr)
+
+
+                        if (download_item == 1 or needReDownload(attachFilepath)):
                             time.sleep(1)
                             item.click()
+                            time.sleep(2)
                             #driver.execute_script("arguments[0].click();", item)
                     except:
                         print(' ㄴ error: item.click() ==> javascript.click()')
-                        if (download_item == 1):
+                        if (download_item == 1 or needReDownload(attachFilepath)):
                             time.sleep(1)
                             #item.click()
                             driver.execute_script("arguments[0].click();", item)
+                            time.sleep(2)
 
-                if (download_item == 1):
-                    time.sleep(2)
 
             # 파일 이동
-            print('save_page: ', save_path, flush=True)
+            # print(' # 파일 이동: TEMP -> ', save_path, flush=True)
+
+            createFolder(save_path)
+            moveFiles(DOWNLOAD_PATH, save_path)
+
+
+            # 파일 이동 후 파일 갯수 검증.
+            file_count = 0
+            for filename in os.listdir(save_path):
+                if os.path.isfile(os.path.join(save_path, filename)):
+                    file_count += 1
+
+            if item_count <= file_count:
+                print(f' ===> {page}-{index}: 파일 수가 정상입니다. ({item_count} <= {file_count})')
+                # with open(LOG_FILE_PATH, 'a') as log:
+                #     log.write('[{}] {}-{}: {}\n'.format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), page, index, list['DOC_TITLE'], "파일 수가 일치하지 않음" ))
+
+            else:
+                print(f' ===> {page}-{index}: 파일 수가 일치하지 않습니다. ({item_count} > {file_count})', file=sys.stderr)
+
+                with open(LOG_FILE_PATH, 'a') as log:
+                    log.write('[{}] {}-{}: {}\n'.format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), page, index, list['DOC_TITLE'], "파일 수가 일치하지 않음" ))
+
+
             index = index + 1
             count = count + item_count
-            if (download_item == 1):
-                createFolder(save_path)
-                moveFiles(DOWNLOAD_PATH, save_path)
+
+            print('')
+
 
         if (startCount < PAGE_SIZE):
             has_next = False

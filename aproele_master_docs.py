@@ -84,17 +84,20 @@ def latest_download_file(source, item_count):
         return newest
     else:
         return "crdownload"
+    
+def waitFiles(source, item_count):
+    fileends = "crdownload"
+    while "crdownload" == fileends:
+        time.sleep(1)
+        newest_file = latest_download_file(source, item_count)
+        if "crdownload" in newest_file:
+            fileends = "crdownload"
+        else:
+            fileends = "none"
 
 def moveFiles(source, target, item_count):
     try:
-        fileends = "crdownload"
-        while "crdownload" == fileends:
-            time.sleep(1)
-            newest_file = latest_download_file(source, item_count)
-            if "crdownload" in newest_file:
-                fileends = "crdownload"
-            else:
-                fileends = "none"
+        waitFiles(source, item_count)
         # 파일 이동.
         #shutil.move(source + '/*', target)
         subprocess.call("mv " + source + "/* " + target, shell=True)
@@ -247,8 +250,10 @@ def downloadPdf():
             # pdf 다운로드
             if (download_item == 1 or needReDownload(docFilepath)):
                 driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-                time.sleep(1)
+                #driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocViewPop.do?doc_id=42654&form_id=23&doc_auth=1#n
+                #time.sleep(1)
                 item_count = item_count + 1
+                waitFiles(DOWNLOAD_PATH, item_count)
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:

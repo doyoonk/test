@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 import os
 import sys
@@ -14,6 +15,7 @@ import json
 import time
 import shutil
 import traceback
+import subprocess
 
 ################################################################################
 # 설정
@@ -32,7 +34,7 @@ else:
     DOWNLOAD_PATH = '/Users/dykim/Downloads/temp'
     SAVE_PATH = '/Users/dykim/Downloads/docs'
     DRIVER_PATH = '{/opt/local/bin/chromedriver}'
-download_item = 0
+download_item = 1
 
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
@@ -55,7 +57,8 @@ option.add_experimental_option('prefs', {
     'profile.default_content_setting_values.automatic_downloads': 1     # 여러 파일 다운로드 권한 허용.
 })
 
-driver = webdriver.Chrome(DRIVER_PATH, options=option)
+#driver = webdriver.Chrome(DRIVER_PATH, options=option)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=option)
 
 now = datetime.datetime.now()
 LOG_FILE_PATH = SAVE_PATH + '/' + now.strftime("%Y-%m-%d_%H%M%S") + '.txt'
@@ -69,8 +72,29 @@ def createFolder(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
+def latest_download_file(source):
+    files = sorted(os.listdir(source))#, key=os.path.getmtime)
+    #newest = files[-1]
+    newest = ""
+    for file in files:
+        newest = newest + file
+    return newest
+
 def moveFiles(source, target):
     try:
+        fileends = "crdownload"
+        while "crdownload" == fileends:
+            time.sleep(1)
+            newest_file = latest_download_file(source)
+            if "crdownload" in newest_file:
+                fileends = "crdownload"
+            else:
+                fileends = "none"
+        # 파일 이동.
+        #shutil.move(source + '/*', target)
+        subprocess.call("mv " + source + "/* " + target, shell=True)
+
+        """
         files = os.listdir(source)
 
         downloging_files = 0
@@ -91,7 +115,7 @@ def moveFiles(source, target):
 
             # 파일 이동.
             shutil.move(source + '/' + file, target)
-
+        """
     except:
         print('moveFiles error!')
         traceback.print_exc()
@@ -155,8 +179,6 @@ def downloadPdf():
         'p_to_dt': '2023-04-30' # datetime.datetime.now().strftime('%Y-%m-%d')
     }
 
-
-
     has_next = True
     page = START_PAGE
     count = 0
@@ -194,15 +216,16 @@ def downloadPdf():
             docFilename = '[' + list['DOC_NO'] + ']' + list['DOC_TITLE'].replace(':', '_').replace('/', '_') + '.pdf'
             docFilepath = save_path + '/' + docFilename
 
-
             if list['FILE_CNT'] == 0:
                 PDF_TYPE = '3'
             else:
                 PDF_TYPE = '5'
 
-
             docFileMessage = "{}-{}:{}".format(page, index, docFilename, save_path)
+            print(docFileMessage)
+            print(" - 경로: {} ".format(save_path))
 
+            """
             if download_item == 1:
                 print(docFileMessage)
                 print(" - 경로: {} ".format(save_path))
@@ -214,12 +237,12 @@ def downloadPdf():
             else:
                 print(docFileMessage + ' (파일이 존재하지 않음)', file=sys.stderr)
                 print(" - 경로: {} ".format(save_path), file=sys.stderr)
-
+            """
 
             # pdf 다운로드
             if (download_item == 1 or needReDownload(docFilepath)):
                 driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
-                time.sleep(2)
+                time.sleep(1)
 
             item_count = item_count + 1
 
@@ -257,19 +280,18 @@ def downloadPdf():
                         else:
                             print(attachFileMessage + ' (파일 존재하지 않음)', file=sys.stderr)
 
-
                         if (download_item == 1 or needReDownload(attachFilepath)):
-                            time.sleep(1)
+                            #time.sleep(1)
                             item.click()
-                            time.sleep(2)
+                            time.sleep(1)
                             #driver.execute_script("arguments[0].click();", item)
                     except:
                         print(' ㄴ error: item.click() ==> javascript.click()')
                         if (download_item == 1 or needReDownload(attachFilepath)):
-                            time.sleep(1)
+                            #time.sleep(1)
                             #item.click()
                             driver.execute_script("arguments[0].click();", item)
-                            time.sleep(2)
+                            time.sleep(1)
 
 
             # 파일 이동

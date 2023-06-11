@@ -72,20 +72,25 @@ def createFolder(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
-def latest_download_file(source):
+def latest_download_file(source, item_count):
     files = sorted(os.listdir(source))#, key=os.path.getmtime)
     #newest = files[-1]
-    newest = ""
-    for file in files:
-        newest = newest + file
-    return newest
+    if (len(files) == item_count):
+        newest = ""
+        for file in files:
+            newest = newest + file
+        if (len(newest) == 0):
+            newest = "crdownload"
+        return newest
+    else:
+        return "crdownload"
 
-def moveFiles(source, target):
+def moveFiles(source, target, item_count):
     try:
         fileends = "crdownload"
         while "crdownload" == fileends:
             time.sleep(1)
-            newest_file = latest_download_file(source)
+            newest_file = latest_download_file(source, item_count)
             if "crdownload" in newest_file:
                 fileends = "crdownload"
             else:
@@ -120,7 +125,7 @@ def moveFiles(source, target):
         print('moveFiles error!')
         traceback.print_exc()
         time.sleep(0.5)
-        moveFiles(source, target)
+        moveFiles(source, target, item_count)
 
 
 # 로컬에 저장된 파일이 있는가?
@@ -243,8 +248,7 @@ def downloadPdf():
             if (download_item == 1 or needReDownload(docFilepath)):
                 driver.get("https://mail.aproele.com/eap/ea/docpop/EAAppDocPrintPop.do?doc_id={}&form_id={}&p_doc_id=0&mode=PDF&doc_auth=1&type=1&area={}&spDocId={};0".format(list['DOC_ID'], list['FORM_ID'], PDF_TYPE, list['DOC_ID']))
                 time.sleep(1)
-
-            item_count = item_count + 1
+                item_count = item_count + 1
 
             # 첨부파일 다운로드
             if list['FILE_CNT'] > 0:
@@ -298,7 +302,7 @@ def downloadPdf():
             # print(' # 파일 이동: TEMP -> ', save_path, flush=True)
 
             createFolder(save_path)
-            moveFiles(DOWNLOAD_PATH, save_path)
+            moveFiles(DOWNLOAD_PATH, save_path, item_count)
 
 
             # 파일 이동 후 파일 갯수 검증.

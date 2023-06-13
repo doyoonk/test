@@ -20,7 +20,7 @@ import subprocess
 ################################################################################
 # 설정
 ################################################################################
-WHO = "dykim" # "dbclose or dykim"
+WHO = "dbclose" # "dbclose or dykim"
 ID = "mskang"
 PW = "aproele0320!@"
 
@@ -38,8 +38,8 @@ download_item = 1
 
 #DRIVER_PATH = '{C:/tools/chromedriver_win32}'
 # PDF_TYPE = '5'  ##---------->>  사용안함. 첨부파일이 있으면 5, 없으면 3으로 자동 설정됨.
-START_PAGE = 1              # 데이터를 다운
-START_INDEX = 1
+START_PAGE = 30              # 데이터를 다운
+START_INDEX = 22
 # 2023/05/26 13:33 33-26 --> 34-1 33-26
 # 2023/05/26 17:47 83-14 --> 84-1
 # 2023/05/26 19:08 89-49 --> 90-1
@@ -89,11 +89,17 @@ def waitFiles(source, item_count):
     fileends = "crdownload"
     while "crdownload" == fileends:
         time.sleep(1)
+
         newest_file = latest_download_file(source, item_count)
-        if "crdownload" in newest_file:
-            fileends = "crdownload"
+
+        if "https://mail.aproele.com/upload/converting/convertingFail.html" == driver.current_url:
+            fileends = "not_support"
+            print("   * 지원하지 않는 형식의 문서입니다.", driver.current_url, file=sys.stderr)
         else:
-            fileends = "none"
+            if "crdownload" in newest_file:
+                fileends = "crdownload"
+            else:
+                fileends = "none"
 
 def moveFiles(source, target, item_count):
     try:
